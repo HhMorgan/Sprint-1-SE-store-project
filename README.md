@@ -43,5 +43,5 @@
     Mahmoud Gamal 37-15638
 
 
-    
-This a repository examining our capabilities in using GitHub commands whilst having a large team committing at the same time.
+<h3>Getting Started :</h3>    
+This a repository examining our capabilities in working in a large team working on a store webpage as a theme for our work.
