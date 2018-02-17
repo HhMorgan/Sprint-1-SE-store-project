@@ -30,43 +30,18 @@
 <h3>C4 Team Members:</h3>
 
     Ahmed Ashraf Mahmoud 34-8297
-     Ahmed Alaa 37-9714
-     Ahmed Hany 37-14121
-     Sarah Gamal 37-4019
-     Ebram yowakem 37-19502
+    Ahmed Alaa 37-9714
+    Ahmed Hany 37-14121
+    Sarah Gamal 37-4019
+    Ebram yowakem 37-19502
 
 <h3>C5 Team Members:</h3>
 		
-	    Tarek Abdelghaffar 37-0761
-     Mohamed Fahim 37-6669
-     Nour Nounou 37-2979
-     Mahmoud Gamal 37-15638
+    Tarek Abdelghaffar 37-0761
+    Mohamed Fahim 37-6669
+    Nour Nounou 37-2979
+    Mahmoud Gamal 37-15638
 
 
-		
-
-    My main theory in life is that the game that is called Lyfe is not r.e.
-    some nerdy guy who works with C2
-    I am in team C5 and SE seems greattt.
-    Hello I am a person, and I am a computer science student, a former junior teaching assistant, and I am so interested in the content of this course.
-    I love football
-    :(
-    I love clothes
-    I love green tea with mint.
-    I love github.
-    "I love Chess" someone in C5.
-    I'm a CS student who's trying to stay happy amidst all of our projects.
-    I love cooking.
-    I love drawing mandalas.
-    Master
-    I love working out.
-    I love Soccer and Writing
-    I love Reading
-    I love drinking coffee.
-    i love archery and sports in general
-    I love Crossfit
-    I love Computer Games Someone in C2
-	I Love freediving and kitesurfing
-    'No one cared who I was until I put on the mask'
-
+    
 This a repository examining our capabilities in using GitHub commands whilst having a large team committing at the same time.
