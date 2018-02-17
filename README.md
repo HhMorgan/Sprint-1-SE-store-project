@@ -20,22 +20,22 @@
      mariam salama 37-1613
      Ahmed Ayman 34-4409
 
-    <h3>C3 Team Members:</h3>
+   <h3>C3 Team Members:</h3>
 
-               Omar Labib 37-0487
-		 Omar Shaker 37-2403
-		 Mayar Lotfy 37-4473
-		 Youhanna Adel 37-14779
+       Omar Labib 37-0487
+       Omar Shaker 37-2403
+       Mayar Lotfy 37-4473
+       Youhanna Adel 37-14779
 
-	<h3>C4 Team Members:</h3>
+<h3>C4 Team Members:</h3>
 
-		 Ahmed Ashraf Mahmoud 34-8297
+    Ahmed Ashraf Mahmoud 34-8297
      Ahmed Alaa 37-9714
      Ahmed Hany 37-14121
      Sarah Gamal 37-4019
      Ebram yowakem 37-19502
 
-	<h3>C5 Team Members:</h3>
+<h3>C5 Team Members:</h3>
 		
 	    Tarek Abdelghaffar 37-0761
      Mohamed Fahim 37-6669
@@ -43,7 +43,7 @@
      Mahmoud Gamal 37-15638
 
 
-		<br/>
+		
 
     My main theory in life is that the game that is called Lyfe is not r.e.
     some nerdy guy who works with C2
