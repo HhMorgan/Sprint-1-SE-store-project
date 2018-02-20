@@ -5,3 +5,5 @@
 <h2>TODO Add descriptions</h2>
 
 Hesham Morgan : "I have once wasted about a couple of seconds for the person who is reading this useless sentence as I didn't have anything to say about myself :)"
+
+Omar Shaker : "I love coding. I really want to make a change in the world we live in, and become a motivation for a lot of people. My favorite saying is: Smile More, I think because of your smile, you can make the world more beautiful."
