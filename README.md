@@ -1,4 +1,4 @@
-<h1>Github - Sprint 0</h1> <br/>
+<h1>Github - Sprint 1</h1> <br/>
 <div style="position:absolute;top:0;bottom:0;margin:auto;">
 	<img align="right" src="logoV9.png" />
 </div>
