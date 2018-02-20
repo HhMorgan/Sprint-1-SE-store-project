@@ -4,4 +4,4 @@
 </div>
 <h2>TODO Add descriptions</h2>
 
-Hesham Morgan : : I have once wasted about a couple of seconds for the person who is reading this useless sentence as I didn't have anything to say about myself :) 
+Hesham Morgan : "I have once wasted about a couple of seconds for the person who is reading this useless sentence as I didn't have anything to say about myself :)"
