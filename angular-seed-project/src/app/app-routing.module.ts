@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'signup',
-    loadChildren: './signup/signup.module#signupModule'
+    loadChildren: './signup/signup.module#SignupModule'
   },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard' }
