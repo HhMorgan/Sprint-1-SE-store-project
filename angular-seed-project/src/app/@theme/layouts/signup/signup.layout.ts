@@ -22,19 +22,15 @@ import 'rxjs/add/operator/delay';
       <nb-layout-column class="main-content">
       <div class="signup-page">
       <div class="form">
-        <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
-            <button>create</button>
-            <p class="message">Already registered? <a href="#">Sign In</a></p>
-          </form>
-          <form class="signup-form">
+        <form class="signup-form">
             <input type="text" placeholder="username"/>
+            <input type="email" placeholder="email address"/>
             <input type="password" placeholder="password"/>
-            <button>signup</button>
-            <p class="message">Not registered? <a href="#">Create an account</a></p>
+            <input type="password" placeholder="confirm password"/>
+            <button>create</button>
+            <p class="message">Do you have an account? <a href="#">Sign In</a></p>
           </form>
+
         </div>
       </div>
         <ng-content select="router-outlet"></ng-content>
