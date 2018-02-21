@@ -18,7 +18,6 @@ import 'rxjs/add/operator/delay';
         <ngx-header></ngx-header>
       </nb-layout-header>
 
-
       <nb-layout-column class="main-content">
       <div class="login-page">
       <div class="form">
