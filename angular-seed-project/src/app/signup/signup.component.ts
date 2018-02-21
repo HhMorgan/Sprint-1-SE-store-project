@@ -13,7 +13,8 @@ import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
     </ngx-signup-layout>
   `
 })
-export class signupComponent implements OnInit {
+
+export class SignupComponent implements OnInit {
  // menu: NbMenuItem[];
 
   ngOnInit() {

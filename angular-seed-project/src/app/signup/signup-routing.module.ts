@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { signupComponent } from './signup.component';
+import { SignupComponent } from './signup.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: signupComponent,
+    component: SignupComponent,
     children: [
       // {
       //   path: 'items',

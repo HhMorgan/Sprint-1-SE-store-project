@@ -1,4 +1,4 @@
-signupimport { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import {
   NbMediaBreakpoint,
   NbMediaBreakpointsService,
@@ -47,7 +47,7 @@ import 'rxjs/add/operator/delay';
     </nb-layout>
   `
 })
-export class signupLayoutComponent implements OnDestroy {
+export class SignupLayoutComponent implements OnDestroy {
 
   constructor(
     protected themeService: NbThemeService,
