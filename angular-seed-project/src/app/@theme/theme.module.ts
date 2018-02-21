@@ -24,7 +24,8 @@ import {
   StatusCardComponent
 } from './components';
 import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
-import { MainLayoutComponent } from './layouts';
+import { MainLayoutComponent } from './layouts/main/main.layout';
+import { LoginLayoutComponent } from './layouts/login/login.layout'
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 
@@ -50,7 +51,8 @@ const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
   StatusCardComponent,
-  MainLayoutComponent
+  MainLayoutComponent,
+  LoginLayoutComponent
 ];
 
 const PIPES = [CapitalizePipe, PluralPipe, RoundPipe, TimingPipe];
