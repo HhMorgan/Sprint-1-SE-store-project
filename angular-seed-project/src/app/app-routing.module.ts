@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: './login/login.module#LoginModule'
   },
+  {
+    path: 'signup',
+    loadChildren: './signup/signup.module#signupModule'
+  },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard' }
 ];
