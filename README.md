@@ -16,3 +16,4 @@ Mohamed Hesham : "I love drawing and art in general. I really into gaming and ga
 Habiba ElHussein : I love cooking, especially desserts.Hope I could get as many stamps on my passport as possible.
 
 SaraH Gamal : "Languages, impressionism and symbols."
+Tarek Abdelrahman : "Football is my passion"
