@@ -1,8 +1,17 @@
 .cardHolderStyle{
-  width:20%;
+
 }
 .cardImage{
   width:100%;
   length:100%;
   border-radius:20px;
+  height:400px;
+}
+.column{
+float: left;
+width: 33.33%
+}
+.row:after{
+  display:table;
+  clear:both;
 }
