@@ -11,7 +11,7 @@ export class UserService {
     AhmedAshraf: { name: 'Ahmed Ashraf', picture: 'assets/images/ahmedashraf.jpg',Description : "???" },
     AhmedAyman: { name: 'Ahmed Ayman', picture: 'assets/images/Ahmedayman.jpg',Description : "???" },
     Aya2: { name: 'Aya', picture: 'assets/images/aya2.jpg' ,Description : "???"},
-    Habiba: { name: 'Habiba', picture: 'assets/images/HabibaElHussein.jpg',Description : "I love cooking, especially desserts.Hope I could get as many stamps on my passport as possible." },
+    Habiba: { name: 'Habiba', picture: 'assets/images/HabibaElHussein.jpg',Description : "I love cooking" },
     MahmmoudGamal: { name: 'Mahmmoud Gamal', picture: 'assets/images/MahmmoudGamal.jpg' ,Description : "I love chess."},
     // eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
     // jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },
