@@ -58,8 +58,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
           // {user: users.kate, type: 'work', time: '9:42 am'},
           // {user: users.kate, type: 'work', time: '9:31 am'},
           // {user: users.jack, type: 'mobile', time: '8:01 am'},
-   ]}) 
-  }
+   ]})}
 
   ngOnDestroy() {
     this.themeSubscription.unsubscribe();
