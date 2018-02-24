@@ -8,15 +8,15 @@ const routes: Routes = [
     path: '',
     component: SignupComponent,
     children: [
-       {
-         path: 'signup',
-         loadChildren: './signup/signup.module#SignUpModule'
-       },
-       {
-         path: '',
-         redirectTo: 'signup',
-         pathMatch: 'full'
-       }
+      //  {
+      //    path: 'signup',
+      //    loadChildren: './signup/signup.module#SignUpModule'
+      //  },
+      //  {
+      //    path: '',
+      //    redirectTo: 'signup',
+      //    pathMatch: 'full'
+      //  }
     ]
   }
 ];
