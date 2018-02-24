@@ -50,7 +50,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
           // {user: users.eva, type: 'home', time: '7:45 pm'},
           {user: users.AhmedAshraf, type: 'mobile', time: '5:29 pm'},
           {user: users.AhmedAyman, type: 'mobile', time: '5:29 pm'},
-          {user: users.Aya2, type: 'mobile', time: '5:29 pm',},
+          {user: users.Aya2, type: 'mobile', time: '5:29 pm'},
           {user: users.Habiba, type: 'mobile', time: '5:29 pm'},
           {user: users.MahmmoudGamal, type: 'mobile', time: '5:29 pm'},
           // {user: users.lee, type: 'mobile', time: '11:24 am'},
@@ -59,7 +59,7 @@ export class ContactsComponent implements OnInit, OnDestroy {
           // {user: users.kate, type: 'work', time: '9:31 am'},
           // {user: users.jack, type: 'mobile', time: '8:01 am'},
         ]
-      } ) ;
+      } ) 
   }
 
   ngOnDestroy() {
