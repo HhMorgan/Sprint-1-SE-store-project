@@ -8,12 +8,16 @@ let counter = 0;
 export class UserService {
 
   private users = {
-    nick: { name: 'Nick Jones', picture: 'assets/images/nick.png' },
-    eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
-    jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },
-    lee: { name: 'Lee Wong', picture: 'assets/images/lee.png' },
-    alan: { name: 'Alan Thompson', picture: 'assets/images/alan.png' },
-    kate: { name: 'Kate Martinez', picture: 'assets/images/kate.png' },
+    AhmedAshraf: { name: 'Ahmed Ashraf', picture: 'assets/images/ahmedashraf.jpg',Description : "???" },
+    AhmedAyman: { name: 'Ahmed Ayman', picture: 'assets/images/Ahmedayman.jpg',Description : "???" },
+    Aya2: { name: 'Aya', picture: 'assets/images/aya2.jpg' ,Description : "???"},
+    Habiba: { name: 'Habiba', picture: 'assets/images/HabibaElHussein.jpg',Description : "I love cooking, especially desserts.Hope I could get as many stamps on my passport as possible." },
+    MahmmoudGamal: { name: 'Mahmmoud Gamal', picture: 'assets/images/MahmmoudGamal.jpg' ,Description : "I love chess."},
+    // eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
+    // jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },
+    // lee: { name: 'Lee Wong', picture: 'assets/images/lee.png' },
+    // alan: { name: 'Alan Thompson', picture: 'assets/images/alan.png' },
+    // kate: { name: 'Kate Martinez', picture: 'assets/images/kate.png' },
   };
 
   private userArray: any[];
