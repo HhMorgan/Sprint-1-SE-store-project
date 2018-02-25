@@ -1,17 +1,19 @@
-import { APP_BASE_HREF } from '@angular/common';
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
 import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { CoreModule } from './@core/core.module';
+import { ThemeModule } from './@theme/theme.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { APIService } from './app_services/api.service';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ThemeModule } from './@theme/theme.module';
-
-import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-
-import { APIService } from './app_services/api.service';
-
 
 
 @NgModule({
@@ -19,12 +21,17 @@ import { APIService } from './app_services/api.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
+
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
-    AppRoutingModule
+    CoreModule.forRoot(),
   ],
-  bootstrap: [ AppComponent ],
-  providers: [ APIService , { provide: APP_BASE_HREF, useValue: '/' } ]
+  bootstrap: [AppComponent],
+  providers: [
+    APIService , { provide: APP_BASE_HREF, useValue: '/' },
+  ],
 })
-export class AppModule {}
+export class AppModule {
+}

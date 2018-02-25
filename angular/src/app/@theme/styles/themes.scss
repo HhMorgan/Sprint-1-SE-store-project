@@ -4,33 +4,24 @@
 @import '~@nebular/theme/styles/themes';
 
 // which themes you what to enable (empty to enable all)
-$nb-enabled-themes: (
-  default,
-  cosmic
-);
+$nb-enabled-themes: (default, cosmic);
 
-$nb-themes: nb-register-theme(
+$nb-themes: nb-register-theme((
+ // app wise variables for each theme
+  sidebar-header-gap: 2rem,
+  sidebar-header-height: initial,
+  layout-content-width: 1400px,
 
-  (
-    sidebar-header-gap: 2rem,
-    sidebar-header-height: initial,
-    layout-content-width: 1400px,
-    font-main: Roboto,
-    font-secondary: Exo
-  ),
-  default,
-  default
-);
+  font-main: Roboto,
+  font-secondary: Exo,
+), default, default);
 
-$nb-themes: nb-register-theme(
+$nb-themes: nb-register-theme((
+  // app wise variables for each theme
+  sidebar-header-gap: 2rem,
+  sidebar-header-height: initial,
+  layout-content-width: 1400px,
 
-  (
-    sidebar-header-gap: 2rem,
-    sidebar-header-height: initial,
-    layout-content-width: 1400px,
-    font-main: Roboto,
-    font-secondary: Exo
-  ),
-  cosmic,
-  cosmic
-);
+  font-main: Roboto,
+  font-secondary: Exo,
+), cosmic, cosmic);
