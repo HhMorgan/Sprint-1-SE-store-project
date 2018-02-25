@@ -10,7 +10,7 @@ import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
     <ngx-login-layout>
       <router-outlet>
       </router-outlet>
-    </ngx-login-layout> 
+    </ngx-login-layout>
   `
 })
 export class LoginComponent implements OnInit {
