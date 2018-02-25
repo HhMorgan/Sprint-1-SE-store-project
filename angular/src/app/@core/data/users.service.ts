@@ -18,7 +18,7 @@ export class UserService {
     MayarLotfy: { name: 'MayarLotfy', picture: 'assets/images/MayarLotfy.jpg', Description : '???' },
     MohamedAdel: { name: 'MohamedAdel', picture: 'assets/images/MohamedAdel.JPG', Description : 'I love Debugging' },
     Morgan: { name: 'Hesham Morgan', picture: 'assets/images/morgan.jpg', Description : 'I love Tech' },
-    Nada: { name: 'Nada', picture: 'assets/images/nada.jpg', Description : '???' },
+    Nada: { name: 'Nada', picture: 'assets/images/nada.jpg', Description : '???'},
 
   };
 
