@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+import { Component, OnInit } from '@angular/core';
+import { AnalyticsService } from './@core/utils/analytics.service';
 
 @Component({
-  selector: 'app-root',
-  template: `
-  <router-outlet (activate)="onActivate($event)"></router-outlet>
-  `
+  selector: 'ngx-app',
+  template: '<router-outlet></router-outlet>',
 })
-export class AppComponent {
-  // Scroll up to the top of the page on changing the route
-  onActivate(event) {
-    window.scroll(0, 0);
+export class AppComponent implements OnInit {
+
+  constructor(private analytics: AnalyticsService) {
+  }
+
+  ngOnInit(): void {
+    this.analytics.trackPageViews();
   }
 }
