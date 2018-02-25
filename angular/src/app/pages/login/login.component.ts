@@ -6,12 +6,8 @@ import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
 
 @Component({
   selector: 'app-login',
-  template: `
-    <ngx-login-layout>
-      <router-outlet>
-      </router-outlet>
-    </ngx-login-layout>
-  `
+  styleUrls: ['./login.component.scss'],
+  templateUrl: './login.component.html',
 })
 export class LoginComponent implements OnInit {
  // menu: NbMenuItem[];
