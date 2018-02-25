@@ -22,3 +22,5 @@ Tarek Abdelrahman : "Football is my passion"
 Mariam Salama : "I like to read"
 
 Omar Hany: "I like Crossfit."
+
+Aya Ibrahim : "I love weightlifting." 
