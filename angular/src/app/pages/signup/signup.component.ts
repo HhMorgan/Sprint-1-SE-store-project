@@ -6,12 +6,12 @@ import { NbMenuItem } from '@nebular/theme/components/menu/menu.service';
 
 @Component({
   selector: 'app-signup',
-  template: `
-    <ngx-signup-layout>
-      <router-outlet>
-      </router-outlet>
-    </ngx-signup-layout>
-  `
+  styleUrls: ['./signup.component.scss'],
+  template :`
+  <ngx-signup-layout>
+    <router-outlet>
+    </router-outlet>
+  </ngx-signup-layout>`
 })
 
 export class SignupComponent implements OnInit {
