@@ -7,4 +7,4 @@ export interface APIData {
 export interface LoginData {
     username: String;
     password: String;
-  }
+}
