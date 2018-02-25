@@ -35,7 +35,6 @@ import {
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
-  LoginLayoutComponent
 
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';

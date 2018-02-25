@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { SignupComponent } from './signup.component';
+import { SignupComponent } from '../signup/signup.component';
 
 const routes: Routes = [
   {
     path: '',
     component: SignupComponent,
     children: [
-      //  {
-      //    path: 'signup',
-      //    loadChildren: './signup/signup.module#SignUpModule'
-      //  },
-      //  {
-      //    path: '',
-      //    redirectTo: 'signup',
-      //    pathMatch: 'full'
-      //  }
+      // {
+      //   path: 'items',
+      //   loadChildren: './items/items.module#ItemsModule'
+      // },
+      // {
+      //   path: '',
+      //   redirectTo: 'items',
+      //   pathMatch: 'full'
+      // }
     ]
   }
 ];
