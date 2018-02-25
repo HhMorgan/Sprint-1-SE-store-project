@@ -48,6 +48,15 @@ export class ContactsComponent implements OnInit, OnDestroy {
         {user: users.MohamedAdel},
         {user: users.Morgan},
         {user: users.Nada},
+        {user: users.Sarah},
+        {user: users.Tarek},
+        {user: users.Youhanna},
+        {user: users.Salma},
+        {user: users.Shaker},
+        {user: users.Hesham},
+
+
+
         ];
 
         this.recent = [
@@ -58,11 +67,19 @@ export class ContactsComponent implements OnInit, OnDestroy {
           {user: users.Aya2},
           {user: users.Habiba},
           {user: users.MahmmoudGamal},
-          {user: users.Mariam},
           {user: users.MayarLotfy},
           {user: users.MohamedAdel},
           {user: users.Morgan},
           {user: users.Nada},
+          {user: users.Sarah},
+          {user: users.Tarek},
+          {user: users.Youhanna},
+          {user: users.Mariam},
+          {user: users.Salma},
+          {user: users.Shaker},
+          {user: users.Hesham},
+
+
           // {user: users.lee, type: 'mobile', time: '11:24 am'},
           // {user: users.jack, type: 'mobile', time: '10:45 am'},
           // {user: users.kate, type: 'work', time: '9:42 am'},

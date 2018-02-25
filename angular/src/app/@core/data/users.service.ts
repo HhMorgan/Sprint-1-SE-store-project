@@ -14,11 +14,17 @@ export class UserService {
     MahmmoudGamal: { name: 'Mahmmoud Gamal', picture: 'assets/images/MahmmoudGamal.jpg'
     , Description : 'I love chess.'},
     Habiba: { name: 'Habiba', picture: 'assets/images/HabibaElHussein.jpg', Description : 'I love cooking' },
-    Mariam: { name: 'Mariam', picture: 'assets/images/Mariam.JPG', Description : '???' },
-    MayarLotfy: { name: 'MayarLotfy', picture: 'assets/images/MayarLotfy.jpg', Description : '???' },
+    MayarLotfy: { name: 'MayarLotfy', picture: 'assets/images/MayarLotfy.jpg', Description : 'I am a passionate Archery player' },
     MohamedAdel: { name: 'MohamedAdel', picture: 'assets/images/MohamedAdel.JPG', Description : 'I love Debugging' },
     Morgan: { name: 'Hesham Morgan', picture: 'assets/images/morgan.jpg', Description : 'I love Tech' },
     Nada: { name: 'Nada', picture: 'assets/images/nada.jpg', Description : '???'},
+    Sarah :{ name:'Sara Gamal', picture:'assets/images/SarahGamal.jpg', Description:'Languages, impressionism and symbols.' },
+    Tarek :{ name:'Tarek Abdelrahman', picture:'assets/images/Tarek.JPG', Description:'Football is my passion' },
+    Youhanna :{ name:'Youhanna Adel', picture:'assets/images/youhannaadel.jpg', Description:'???' },
+    Mariam :{ name:'Mariam Salama', picture:'assets/images/Mariam.JPG', Description:'I like to read' },
+    Salma :{ name:'Salma Zaki', picture:'assets/images/salmazaki.jpg', Description:'???' },
+    Shaker :{ name:'Omar Shaker', picture:'assets/images/OmarShaker.jpg', Description:'I love coding.' },
+    Hesham :{ name:'Mohamed Hesham', picture:'assets/images/mohamed_hesham.jpg', Description:'I love drawing and art in general' },
 
   };
 
