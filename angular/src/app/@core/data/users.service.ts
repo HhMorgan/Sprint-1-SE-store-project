@@ -14,11 +14,12 @@ export class UserService {
     MahmmoudGamal: { name: 'Mahmmoud Gamal', picture: 'assets/images/MahmmoudGamal.jpg'
     , Description : 'I love chess.'},
     Habiba: { name: 'Habiba', picture: 'assets/images/HabibaElHussein.jpg', Description : 'I love cooking' },
-    // eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
-    // jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },
-    // lee: { name: 'Lee Wong', picture: 'assets/images/lee.png' },
-    // alan: { name: 'Alan Thompson', picture: 'assets/images/alan.png' },
-    // kate: { name: 'Kate Martinez', picture: 'assets/images/kate.png' },
+    Mariam: { name: 'Mariam', picture: 'assets/images/Mariam.JPG', Description : '???' },
+    MayarLotfy: { name: 'MayarLotfy', picture: 'assets/images/MayarLotfy.jpg', Description : '???' },
+    MohamedAdel: { name: 'MohamedAdel', picture: 'assets/images/MohamedAdel.JPG', Description : 'I love Debugging' },
+    Morgan: { name: 'Hesham Morgan', picture: 'assets/images/morgan.jpg', Description : 'I love Tech' },
+    Nada: { name: 'Nada', picture: 'assets/images/nada.jpg', Description : '???' },
+
   };
 
   private userArray: any[];
