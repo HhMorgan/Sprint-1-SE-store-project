@@ -6,20 +6,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-.propic{
-  position: absolute;
-  border-radius: 100%;
-  height: 100%;
-   width: 20%;
-   margin : auto;
-   left: 30%;
-   right: 0;
-   top: 0;
-   bottom: 0;
-   pointer-events: none;
-  // background-image: url('../../../assets/images/pic.jpeg');
 
-}
   .left {
     display: flex;
     width: 100%;
@@ -53,6 +40,7 @@
       i {
         display: block;
       }
+
     }
 
     .logo {
@@ -80,6 +68,7 @@
   }
 
   @include media-breakpoint-down(md) {
+
     nb-action:not(.toggle-layout) {
       border: none;
     }
@@ -94,12 +83,14 @@
   }
 
   @include media-breakpoint-down(sm) {
+
     nb-user /deep/ .user-name {
       display: none;
     }
   }
 
   @include media-breakpoint-down(is) {
+
     .header-container {
       .logo {
         font-size: 1.25rem;
@@ -116,10 +107,9 @@
   }
 
   @include media-breakpoint-down(xs) {
-    .header-container {
-      .logo {
-        font-size: 1rem;
-      }
+    .right /deep/ {
+      display: none;
     }
   }
 }
+
