@@ -8,8 +8,8 @@
     </nb-tab> -->
     <nb-tab tabTitle="Authors">
       <div class="contact" *ngFor="let c of recent">
-        <nb-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></nb-user>
-        <span class="time">{{ c.time }}</span>
+        <nb-user [picture]="c.user.picture" [name]="c.user.name"  [title]="c.user.Description"  size="large"></nb-user>
+
       </div>
     </nb-tab>
   </nb-tabset>
