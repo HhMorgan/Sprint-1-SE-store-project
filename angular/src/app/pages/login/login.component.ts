@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
 
   loginClick(){
     this._apiService.login({ username: this.username, password: this.password }).subscribe((apiresponse: APIData)=>{
+      this.loginMessage = apiresponse.msg;
       if( apiresponse.msg.includes('Successful') ){ //D2a 7aga mo2kta
         this.showDashboard();
       } else {
