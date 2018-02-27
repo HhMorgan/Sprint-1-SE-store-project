@@ -142,6 +142,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
+    title: 'Cart',
+    icon: 'nb-coffee-maker',
+    children: [
+      {
+        title: 'Cart Table',
+        link: '/pages/cart/cart-table',
+      },
+    ],
+  },
+  {
     title: 'Auth',
     icon: 'nb-locked',
     children: [

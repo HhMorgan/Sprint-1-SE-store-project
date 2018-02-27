@@ -38,6 +38,9 @@ const routes: Routes = [{
     path: 'tables',
     loadChildren: './tables/tables.module#TablesModule',
   }, {
+    path: 'cart',
+    loadChildren: './cart/cart.module#CartModule',
+  },{
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
