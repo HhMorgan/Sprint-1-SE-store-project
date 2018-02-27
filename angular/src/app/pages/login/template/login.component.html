@@ -1,0 +1,17 @@
+<nb-layout-column class="main-content">
+  <div class="login-page">
+    <div class="internalBox">
+      <div class="form" id="InputDiv">
+        <h1 class="md-display-2">WELCOME BACK</h1>
+        <form class="login-form">
+          <input type="text" [(ngModel)]="username" placeholder="username" [ngModelOptions]="{standalone: true}"/>
+          <input type="password" [(ngModel)]="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
+          <button (click)="loginClick($event)">login</button>
+          {{loginMessage}}
+          <p class="message">Not registered? <a href="#/pages/signup">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <ng-content select="router-outlet"></ng-content>
+</nb-layout-column>

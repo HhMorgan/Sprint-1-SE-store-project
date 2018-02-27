@@ -1,3 +1,5 @@
+require('../models/User'),
+require('../models/Product');
 var mongoose = require('mongoose'),
   config = require('../config/Config'),
   dburl = config.MONGO_URI;
@@ -56,5 +58,3 @@ mongoose.connect(dburl, function(err) {
     process.exit(0);
   });
 });
-
-require('../models/Product');
