@@ -1,7 +1,8 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
-import { APIData } from '../../app_services/models/api.data.structure'
+import { APIData  , ProductData } from '../../app_services/models/api.data.structure'
 
 
 @Component({
@@ -61,6 +62,12 @@ export class StoreComponent implements OnInit {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private _apiService: APIService) {
+    this.source.onAdded().subscribe((productData :ProductData)=>{
+      this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse.msg);
+      });
+    });
+
     this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
       this.source.load( apiresponse.data);
     });
