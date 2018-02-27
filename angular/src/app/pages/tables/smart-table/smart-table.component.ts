@@ -34,25 +34,25 @@ export class SmartTableComponent {
         title: 'ID',
         type: 'number',
       },
-      firstName: {
-        title: 'First Name',
+      Name: {
+        title: 'Name',
         type: 'string',
       },
-      lastName: {
-        title: 'Last Name',
-        type: 'string',
-      },
-      username: {
-        title: 'Username',
-        type: 'string',
-      },
-      email: {
-        title: 'E-mail',
-        type: 'string',
-      },
-      age: {
-        title: 'Age',
+      Price: {
+        title: 'Price',
         type: 'number',
+      },
+      CreatedAt: {
+        title: 'Created',
+        type: 'date',
+      },
+      UpdatedAt: {
+        title: 'Updated',
+        type: 'date',
+      },
+      SellerName: {
+        title: 'Seller Name',
+        type: 'string',
       },
     },
   };
