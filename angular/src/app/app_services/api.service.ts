@@ -11,6 +11,7 @@ import { APIData , LoginData } from './models/api.data.structure'
 
 @Injectable()
 export class APIService {
+  private apiUrl = 'http://localhost:3000/api/';
   constructor(private http: HttpClient) {}
 
   errorHandler(error: HttpErrorResponse){
@@ -18,10 +19,14 @@ export class APIService {
   }
 
   getProducts(): Observable<APIData> {
-    return this.http.get<APIData>('http://localhost:3000/api/' + 'product/getProducts').catch(this.errorHandler);
+    return this.http.get<APIData>(this.apiUrl + 'product/getProducts').catch(this.errorHandler);
   }
 
+  createUser(loginData: LoginData): Observable<APIData> {
+    return this.http.post<APIData>(this.apiUrl + 'user/create', loginData).catch(this.errorHandler);
+  };
+
   login(loginData: LoginData): Observable<APIData> {
-    return this.http.post<APIData>('http://localhost:3000/api/auth/login', loginData).catch(this.errorHandler);
+    return this.http.post<APIData>(this.apiUrl + 'auth/login', loginData).catch(this.errorHandler);
   }
 }
