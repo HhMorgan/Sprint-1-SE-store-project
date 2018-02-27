@@ -1,7 +1,8 @@
 var mongoose = require('mongoose'),
-  moment = require('moment'),
-  Validations = require('../utils/Validations'),
-  Product = mongoose.model('Product');
+moment = require('moment'),
+Product = mongoose.model('Product'),
+Validations = require('../utils/Validations');
+  
 
 module.exports.getProduct = function(req, res, next) {
   if (!Validations.isObjectId(req.params.productId)) {
@@ -29,14 +30,14 @@ module.exports.getProduct = function(req, res, next) {
 };
 
 module.exports.getProducts = function(req, res, next) {
-  Product.find({}).exec(function(err, products) {
+  Product.find({}).exec(function(err, product) {
     if (err) {
       return next(err);
     }
     res.status(200).json({
       err: null,
       msg: 'Products retrieved successfully.',
-      data: products
+      data: product
     });
   });
 };
@@ -77,7 +78,7 @@ module.exports.createProduct = function(req, res, next) {
   if (!valid) {
     return res.status(422).json({
       err: null,
-      msg: 'name(String) and price(Number) are required fields.',
+      msg: 'name (String) and price (Number) are required fields.',
       data: null
     });
   }

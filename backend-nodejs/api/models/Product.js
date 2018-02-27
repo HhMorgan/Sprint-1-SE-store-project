@@ -4,8 +4,7 @@ var productSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true,
-    lowercase: true
+    trim: true
   },
   price: {
     type: Number,
@@ -17,6 +16,7 @@ var productSchema = mongoose.Schema({
     default: Date.now
   },
   updatedAt: Date
-});
+},{collection: 'Products'}
+);
 
 mongoose.model('Product', productSchema);
