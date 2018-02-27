@@ -16,7 +16,7 @@ module.exports.userlogin = function(req, res, next) {
       });
     }
     User.findOne({ username:{ $eq: req.body.username } , password:{ $eq: req.body.password } }, function(err, user){
-      if (err) 
+      if (err)
         throw err;
       if (user == null){
         res.status(201).json({
@@ -32,4 +32,20 @@ module.exports.userlogin = function(req, res, next) {
         });
       }
     });
+};
+
+
+
+module.exports.usersignup = function(req, res, next) {
+    var valid =  req.body.username && Validations.isString(req.body.username) &&
+      req.body.password && Validations.isString(req.body.password) && Validations.isString(req.body.name) && Validations.isString(req.body.email);
+      console.log(req.body);
+    if (!valid) {
+      return res.status(422).json({
+        err: null,
+        msg: 'user (String) and password (String) are required fields.',
+        data: null
+      });
+    }
+
 };
