@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
+import { Component, OnInit } from '@angular/core';
+import { LocalDataSource } from 'ng2-smart-table';
+import { APIService } from '../../app_services/api.service';
+import { APIData } from '../../app_services/models/api.data.structure'
 
 @Component({
   selector: 'ngx-smart-table',
@@ -59,6 +63,12 @@ export class SmartTableComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
+
+/*  constructor(private _apiService: APIService) {
+        this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
+        this.source.load( apiresponse.data);
+     });*/
+
   constructor(private service: SmartTableService) {
     const data = this.service.getData();
     this.source.load(data);
@@ -70,5 +80,5 @@ export class SmartTableComponent {
     } else {
       event.confirm.reject();
     }
-  }
+  } 
 }

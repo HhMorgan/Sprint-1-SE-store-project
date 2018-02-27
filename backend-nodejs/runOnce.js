@@ -6,10 +6,15 @@ var url = "mongodb://localhost:27017/Store-Database";
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("Store-Database");  
+  var dbo = db.db("Store-Database");
 
   var ProductsObj = [
-
+  {     id: 1,
+      Name: 'Mayar',
+      Price: '6000',
+      CreatedAt: '12/12/2003',
+      UpdatedAt: '9/9/2009',
+      SellerName: 'Youhanna'}
   ];
 
   var usersObj = [
@@ -21,7 +26,7 @@ MongoClient.connect(url, function(err, db) {
   ];
 
   var collectionsObj = [
-    {name: 'Products', data: null},
+    {name: 'Products', data: ProductsObj},
     {name: 'Users', data: usersObj},
   ];
 
@@ -40,4 +45,4 @@ MongoClient.connect(url, function(err, db) {
     console.log("Collection: "+collectionsObj[i].name+" created !");
   }
   console.log("Press Control C");
-}); 
+});
