@@ -28,7 +28,7 @@ import 'rxjs/add/operator/delay';
                    tag="menu-sidebar"
                    responsive
                    [right]="sidebar.id === 'right'">
-      
+
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
@@ -95,7 +95,7 @@ export class SampleLayoutComponent  implements OnDestroy {
       icon: 'ion ion-android-radio-button-off',
       link: '/pages/ui-features/search-fields',
     },
-    {
+  {
       title: 'Tabs',
       icon: 'ion ion-android-radio-button-off',
       link: '/pages/ui-features/tabs',
