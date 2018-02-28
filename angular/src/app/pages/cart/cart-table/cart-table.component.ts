@@ -4,7 +4,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableService } from '../../../@core/data/smart-table.service';
 
 @Component({
-  selector: 'ngx-cart-table',
+  selector: 'ne',
   templateUrl: './cart-table.component.html',
   styles: [`
     nb-card {
@@ -15,15 +15,11 @@ import { SmartTableService } from '../../../@core/data/smart-table.service';
 export class CartTableComponent {
 
   settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+    actions:{
+      edit:false,
+      add:false,
+      columnTitle:'Search'
+    
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
