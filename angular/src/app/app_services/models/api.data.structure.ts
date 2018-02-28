@@ -10,10 +10,10 @@ export interface LoginData {
 }
 
 export interface ProductData {
-    id: number;
-    Name: String;
-    Price: number;
-    CreatedAt: Date;
-    UpdatedAt: Date;
-    SellerName: String;
+    id: Number;
+    name: String;
+    price: Number;
+    createdAt: String;
+    updatedAt: String;
+    seller:  String;
 }

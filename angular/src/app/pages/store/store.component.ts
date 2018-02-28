@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-
-import { SmartTableService } from '../../../@core/data/smart-table.service';
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
-import { APIData } from '../../app_services/models/api.data.structure'
+import { APIData  , ProductData } from '../../app_services/models/api.data.structure'
+
 
 @Component({
-  selector: 'ngx-smart-table',
-  templateUrl: './smart-table.component.html',
-  styles: [`
-    nb-card {
-      transform: translate3d(0, 0, 0);
-    }
-  `],
+  selector: 'store',
+  templateUrl: './template/store.component.html',
+  styleUrls: ['./template/store.component.scss']
 })
-export class SmartTableComponent {
+
+export class StoreComponent implements OnInit {
+
+  ngOnInit() {
+  }
 
   settings = {
     add: {
@@ -38,24 +36,24 @@ export class SmartTableComponent {
         title: 'ID',
         type: 'number',
       },
-      Name: {
+      name: {
         title: 'Name',
         type: 'string',
       },
-      Price: {
+      price: {
         title: 'Price',
         type: 'number',
       },
-      CreatedAt: {
-        title: 'Created',
-        type: 'date',
+      createdAt: {
+        title: 'CreatedAt',
+        type: 'string',
       },
-      UpdatedAt: {
-        title: 'Updated',
-        type: 'date',
+      updatedAt: {
+        title: 'UpdatedAt',
+        type: 'string',
       },
-      Seller: {
-        title: 'Seller Name',
+      seller: {
+        title: 'Seller',
         type: 'string',
       },
     },
@@ -63,16 +61,34 @@ export class SmartTableComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-
   constructor(private _apiService: APIService) {
-        this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
-        this.source.load( apiresponse.data);
-     });
+    this.source.onAdded().subscribe((productData :ProductData)=>{
+      this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse.msg);
+      });
+    });
 
-/*  constructor(private service: SmartTableService) {
-    const data = this.service.getData();
-    this.source.load(data);
-  }*/
+    this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
+      this.source.load( apiresponse.data);
+    });
+
+
+
+
+
+
+
+
+
+
+    // const data = this.service.getProducts().subscribe;
+
+
+
+
+
+    
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {

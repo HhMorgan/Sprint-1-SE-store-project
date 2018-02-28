@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           this.loginMessage = apiresponse.msg;
         }
       })
-    } else 
+    } else
     this.loginMessage = 'Username or Password Can not Be Empty ';
   }
 }

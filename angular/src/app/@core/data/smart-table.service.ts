@@ -5,11 +5,10 @@ export class SmartTableService {
 
   data = [{
     id: 1,
-    Name: 'Mayar',
-    Price: '6000',
-    CreatedAt: '12/12/2003',
-    UpdatedAt: '9/9/2009',
-    SellerName: 'Omar',
+    name: 'Mark',
+    price: 123,
+    createdAt:'26/2/2018',
+    updatedAt:'28/2/2018',
   }];
 
   getData() {
