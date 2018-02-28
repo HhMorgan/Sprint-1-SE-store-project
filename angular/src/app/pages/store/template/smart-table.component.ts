@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-
 import { SmartTableService } from '../../../@core/data/smart-table.service';
-import { Component, OnInit } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-import { APIService } from '../../app_services/api.service';
-import { APIData } from '../../app_services/models/api.data.structure'
 
 @Component({
   selector: 'ngx-smart-table',
@@ -38,41 +33,35 @@ export class SmartTableComponent {
         title: 'ID',
         type: 'number',
       },
-      Name: {
-        title: 'Name',
+      firstName: {
+        title: 'First Name',
         type: 'string',
       },
-      Price: {
-        title: 'Price',
+      lastName: {
+        title: 'Last Name',
+        type: 'string',
+      },
+      username: {
+        title: 'Username',
+        type: 'string',
+      },
+      email: {
+        title: 'E-mail',
+        type: 'string',
+      },
+      age: {
+        title: 'Age',
         type: 'number',
-      },
-      CreatedAt: {
-        title: 'Created',
-        type: 'date',
-      },
-      UpdatedAt: {
-        title: 'Updated',
-        type: 'date',
-      },
-      Seller: {
-        title: 'Seller Name',
-        type: 'string',
       },
     },
   };
 
   source: LocalDataSource = new LocalDataSource();
 
-
-  constructor(private _apiService: APIService) {
-        this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
-        this.source.load( apiresponse.data);
-     });
-
-/*  constructor(private service: SmartTableService) {
+  constructor(private service: SmartTableService) {
     const data = this.service.getData();
     this.source.load(data);
-  }*/
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
