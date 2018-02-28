@@ -132,11 +132,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Tables',
+    title: 'Store',
     icon: 'nb-tables',
     children: [
       {
-        title: 'Smart Table',
+        title: 'Navigate Store',
         link: '/pages/tables/smart-table',
       },
     ],
