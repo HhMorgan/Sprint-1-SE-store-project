@@ -40,6 +40,10 @@ const routes: Routes = [{
   }, {
     path: 'cart',
     loadChildren: './cart/cart.module#CartModule',
+  },{ 
+    path: 'store',
+    loadChildren: './store/store.module#StoreModule',
+
   },{
     path: '',
     redirectTo: 'dashboard',

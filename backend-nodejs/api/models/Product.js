@@ -16,7 +16,8 @@ var productSchema = mongoose.Schema({
     default: Date.now
   },
   updatedAt: Date
-},{collection: 'Products'}
+},{
+  collection: 'Products'}
 );
 
 mongoose.model('Product', productSchema);
