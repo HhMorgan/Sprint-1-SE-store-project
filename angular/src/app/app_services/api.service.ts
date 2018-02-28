@@ -20,8 +20,13 @@ export class APIService {
     return this.http.get<APIData>('http://localhost:3000/api/' + 'product/getProducts').catch(this.errorHandler);
   }
 
+  deleteProduct(productdata:ProductData):Observable<APIData>{
+    return this.http.delete<ProductData>('http://localhost:3000/api/' + '/product/deleteProduct/'+productdata._id)
+    .catch(this.errorHandler);
+  }
+
   createProduct(productdata: ProductData): Observable<APIData>{
-    return this.http.post<ProductData>('http://localhost:3000/api/'+ 'product/createProduct', productdata).catch(this.errorHandler);
+    return this.http.post<ProductData>('http://localhost:3000/api/' + 'product/createProduct', productdata).catch(this.errorHandler);
   }
 
   login(loginData: LoginData): Observable<APIData> {

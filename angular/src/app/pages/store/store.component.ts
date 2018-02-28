@@ -17,7 +17,12 @@ export class StoreComponent implements OnInit {
   }
 
   settings = {
+    // mode: 'external',
+    editor: {
+      config: false
+    },
     add: {
+      inputClass: "ID",
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
@@ -31,10 +36,18 @@ export class StoreComponent implements OnInit {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },
+    actions: {
+      add: false,
+      edit: false,
+      delete: false,
+      columnTitle: 'Search'
+    },
     columns: {
       id: {
         title: 'ID',
         type: 'number',
+        editable: false,
+        addable: false,
       },
       name: {
         title: 'Name',
@@ -47,14 +60,20 @@ export class StoreComponent implements OnInit {
       createdAt: {
         title: 'CreatedAt',
         type: 'string',
+        editable: false,
+        addable: false,
       },
       updatedAt: {
         title: 'UpdatedAt',
         type: 'string',
+        editable: false,
+        addable: false,
       },
       seller: {
         title: 'Seller',
         type: 'string',
+        editable: false,
+        addable: false,
       },
     },
   };
@@ -64,30 +83,24 @@ export class StoreComponent implements OnInit {
   constructor(private _apiService: APIService) {
     this.source.onAdded().subscribe((productData :ProductData)=>{
       this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
-        console.log(apiresponse.msg);
+        console.log(apiresponse);
       });
     });
-
+    this.source.onRemoved().subscribe((productData :ProductData)=>{
+      this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse);
+      });
+    });
+    this.source.onChanged().subscribe((productData :ProductData)=>{
+      // console.log(productData);
+    });
     this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
+      for (var i = 0 ; i < apiresponse.data.length ; i++ )
+        apiresponse.data[i].id = (i+1);
+      
+      console.log(apiresponse.data[0]);
       this.source.load( apiresponse.data);
     });
-
-
-
-
-
-
-
-
-
-
-    // const data = this.service.getProducts().subscribe;
-
-
-
-
-
-    
   }
 
   onDeleteConfirm(event): void {
@@ -96,5 +109,10 @@ export class StoreComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+  }
+
+  OnRowSelect(event): void{
+    var productData :ProductData = event.data;
+    console.log(productData);
   }
 }
