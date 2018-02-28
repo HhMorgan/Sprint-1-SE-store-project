@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { StoreModule } from './store/store.module';
 import { StoreComponent } from './store/store.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [{
   path: '',
@@ -22,6 +22,9 @@ const routes: Routes = [{
   }, {
     path: 'store',
     component: StoreComponent
+}, {
+  path: 'cart',
+  component: CartComponent
 },
   {
     path: '',

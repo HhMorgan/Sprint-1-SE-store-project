@@ -19,10 +19,16 @@ MongoClient.connect(url, function(err, db) {
     { username: 'admin', password: 'admin'},
     { username: 'manager', password: 'manager'}
   ];
-
+  var cartsObj = [
+    { username: '1', items: ['a','b','c','d']},
+    { username: '2', items: ['e','f','g','h']},
+    { username: 'admin', items: ['i','j','k','l']},
+    { username: 'manager', items: ['m','n','o','p']},
+  ];
   var collectionsObj = [
     {name: 'Products', data: null},
     {name: 'Users', data: usersObj},
+    {name: 'Carts', data: cartsObj},
   ];
 
   for (var i = 0; i < collectionsObj.length; i++){

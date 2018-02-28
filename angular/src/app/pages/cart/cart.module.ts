@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CartComponent } from './cart.component';
+import { ThemeModule } from '../../@theme/theme.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
-import { ThemeModule } from '../../@theme/theme.module';
-import { CartRoutingModule, routedComponents } from './cart-routing.module';
-import { SmartTableService } from '../../@core/data/smart-table.service';
 
 @NgModule({
   imports: [
     ThemeModule,
-    CartRoutingModule,
     Ng2SmartTableModule,
   ],
   declarations: [
-    ...routedComponents,
-  ],
-  providers: [
-    SmartTableService,
+    CartComponent,
   ],
 })
+
 export class CartModule { }

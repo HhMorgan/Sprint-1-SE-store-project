@@ -16,3 +16,9 @@ export interface ProductData {
     updatedAt: String;
     seller:  String;
 }
+export interface CartData {
+    name: String;
+    price: Number; 
+    addedAt: String; 
+    seller:  String;
+}
