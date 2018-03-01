@@ -3,10 +3,12 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
+
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { CoreModule } from './@core/core.module';
+import { ToasterService } from 'angular2-toaster';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { APIService } from './app_services/api.service';
@@ -14,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreComponent } from './pages/store/store.component';
+
 
 
 @NgModule({
@@ -31,7 +33,7 @@ import { StoreComponent } from './pages/store/store.component';
   ],
   bootstrap: [AppComponent],
   providers: [
-    APIService , { provide: APP_BASE_HREF, useValue: '/' },
+    APIService , ToasterService , { provide: APP_BASE_HREF, useValue: '/' },
   ],
 })
 export class AppModule {
