@@ -20,11 +20,11 @@ export class LoginComponent implements OnInit {
 
   }
 
-  showDashboard(){
+  showDashboard() {
     this.router.navigate(['dashboard'], { relativeTo: this.route });
   }
 
-  loginClick(){
+  loginClick() {
     if(this.username != null && this.password != null){
       this._apiService.login({ username: this.username, password: this.password }).subscribe((apiresponse: APIData)=>{
         this.loginMessage = apiresponse.msg;
@@ -36,6 +36,6 @@ export class LoginComponent implements OnInit {
         }
       })
   } else
-    this.loginMessage = 'Username or Password Can not Be Empty ';
+      this.loginMessage = 'Username or Password Can not Be Empty ';
   }
 }

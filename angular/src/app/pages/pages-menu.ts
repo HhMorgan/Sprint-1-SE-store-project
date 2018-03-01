@@ -6,23 +6,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-home',
     link: '/pages/dashboard',
     home: true,
-  },
-
-  {
+  },{
     title: 'FEATURES',
     group: true,
-  },
-  {
+  },{
     title: 'Store',
     icon: 'nb-tables',
     link: '/pages/store',
-    home: true,
-  },
-  {
-title: 'Cart',
-icon: 'nb-coffee-maker',
-   link: '/pages/cart',
-   home: true,
+  },{
+    title: 'Cart',
+    icon: 'nb-coffee-maker',
+    link: '/pages/cart',
 },
   {
     title: 'Auth',
@@ -31,12 +25,10 @@ icon: 'nb-coffee-maker',
       {
         title: 'Login',
         link: '/pages/login',
-      },
-      {
+      },{
         title: 'Register',
         link: '/pages/signup',
       },
-
    ],
  },
 
