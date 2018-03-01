@@ -10,6 +10,7 @@ export interface LoginData {
 }
 export interface ProductData {
     _id:String;
+    id:number;
     name: String;
     price: Number; 
     createdAt: String; 

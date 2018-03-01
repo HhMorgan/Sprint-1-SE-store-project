@@ -42,6 +42,12 @@ export class APIService {
   createCartProduct(cartdata: CartData): Observable<APIData>{
     return this.http.post<CartData>(this.apiUrl + 'cart/createProduct', cartdata).catch(this.errorHandler);
   }
+
+  addCartProduct(productdata: ProductData): Observable<APIData>{
+    return this.http.post<ProductData>(this.apiUrl + 'cart/createProduct', productdata._id).catch(this.errorHandler);
+  }
+
+
   createUser(loginData: LoginData): Observable<APIData> {
     return this.http.post<APIData>(this.apiUrl + 'user/create', loginData).catch(this.errorHandler);
   };
