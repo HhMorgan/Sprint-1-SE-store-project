@@ -82,6 +82,7 @@ export class StoreComponent implements OnInit {
 
   constructor(private _apiService: APIService) {
     this.source.onAdded().subscribe((productData :ProductData)=>{
+      productData.seller = localStorage.getItem('currentUser');
       this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
         console.log(apiresponse);
       });
@@ -99,7 +100,7 @@ export class StoreComponent implements OnInit {
     this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
       for (var i = 0 ; i < apiresponse.data.length ; i++ )
         apiresponse.data[i].id = (i+1);
-      
+
       console.log(apiresponse.data[0]);
       this.source.load( apiresponse.data);
     });
