@@ -13,6 +13,8 @@ router.get(
 );
 router.post('/product/createProduct', ProductController.createProduct);
 router.post('/auth/login', UserController.userlogin);
+router.post('/user/create', UserController.userCreate);
+
 
 router.patch('/product/updateProduct/:productId', ProductController.updateProduct);
 router.delete('/product/deleteProduct/:productId', ProductController.deleteProduct);
