@@ -20,6 +20,8 @@ router.patch('/product/updateProduct/:productId', ProductController.updateProduc
 router.delete('/product/deleteProduct/:productId', ProductController.deleteProduct);
 router.post('/user/addToCart', UserController.addToCart);
 router.get('/user/viewCart', UserController.viewCart);
+router.get('/user/checkout', UserController.checkout);
+
 
 
 

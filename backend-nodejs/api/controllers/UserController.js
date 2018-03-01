@@ -126,3 +126,35 @@ module.exports.viewCart= function(req, res, next) {
   });
 };
 
+module.exports.checkout = function(req, res, next) {
+  var valid =  req.body.username && Validations.isString(req.body.username) 
+    console.log(req.body);
+  if (!valid) {
+    return res.status(422).json({
+      err: null,
+      msg: 'user (String) is a required field.',
+      data: null
+    });
+  }
+  User.findOneAndUpdate( req.body.username ,
+    {
+      
+      
+      $set: { cart: [] }
+    }
+  ).exec(function(err, cart) {
+    if (err) {
+      return next(err);
+    }
+    if (!cart) {
+      return res
+        .status(404)
+        .json({ err: null, msg: 'Products could not be deleted.', data: null });
+    }
+    res.status(200).json({
+      err: null,
+      msg: 'Products were deleted successfully from the cart.',
+      data: cart
+    });
+  });
+};
