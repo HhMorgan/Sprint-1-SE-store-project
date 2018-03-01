@@ -1,5 +1,6 @@
 require('../models/User'),
-require('../models/Product');
+require('../models/Product'),
+require('../models/Cart');
 var mongoose = require('mongoose'),
   config = require('../config/Config'),
   dburl = config.MONGO_URI;

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StoreComponent } from './store/store.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [{
   path: '',
@@ -16,31 +18,15 @@ const routes: Routes = [{
   }, {
     path: 'signup',
     loadChildren: './signup/signup.module#SignupModule',
+    
   }, {
-    path: 'ui-features',
-    loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
-  }, {
-    path: 'components',
-    loadChildren: './components/components.module#ComponentsModule',
-  }, {
-    path: 'maps',
-    loadChildren: './maps/maps.module#MapsModule',
-  }, {
-    path: 'charts',
-    loadChildren: './charts/charts.module#ChartsModule',
-  }, {
-    path: 'editors',
-    loadChildren: './editors/editors.module#EditorsModule',
-  }, {
-    path: 'forms',
-    loadChildren: './forms/forms.module#FormsModule',
-  }, {
-    path: 'tables',
-    loadChildren: './tables/tables.module#TablesModule',
-  }, {
-    path: 'cart',
-    loadChildren: './cart/cart.module#CartModule',
-  },{
+    path: 'store',
+    component: StoreComponent
+}, {
+  path: 'cart',
+  component: CartComponent
+},
+  {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
