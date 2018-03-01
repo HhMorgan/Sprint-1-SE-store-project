@@ -46,7 +46,7 @@ module.exports.userCreate = function(req, res, next) {
     });
   }
   User.findOne({ username:{ $eq: req.body.username } }, function(err, user){
-    if (err) 
+    if (err)
       throw err;
     if (user == null){
       User.create(req.body, function(err, createduser) {
@@ -69,3 +69,36 @@ module.exports.userCreate = function(req, res, next) {
 
   });
 };
+
+module.exports.addToCart = function(req, res, next) {
+  var valid =  req.body.username && Validations.isString(req.body.username) &&
+    req.body.productId && Validations.isObjectId(req.body.productId);
+    console.log(req.body);
+  if (!valid) {
+    return res.status(422).json({
+      err: null,
+      msg: 'user (String) and cart (Array) are required fields.',
+      data: null
+    });
+  }
+  User.findOneAndUpdate( req.body.username ,
+    {
+      $push: { cart: req.body.productId }
+    }
+  ).exec(function(err, updatedCart) {
+    if (err) {
+      return next(err);
+    }
+    if (!updatedCart) {
+      return res
+        .status(404)
+        .json({ err: null, msg: 'Product could not be added to cart.', data: null });
+    }
+    res.status(200).json({
+      err: null,
+      msg: 'Product was added successfully to the cart.',
+      data: updatedCart
+    });
+  });
+};
+

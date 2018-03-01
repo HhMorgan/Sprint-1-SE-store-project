@@ -9,6 +9,10 @@ var userSchema = mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  cart:{
+    type: Array,
+    "default":[]
   }
 },{collection: 'Users'}
 );
