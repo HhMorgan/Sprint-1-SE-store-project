@@ -48,7 +48,6 @@ export class HeaderComponent implements OnInit {
   }
 
  logout(){
-    console.log(this.status);
     console.log(localStorage.getItem('currentUser'));
     if((this.status=='login') && (localStorage.getItem('currentUser')=='null')){
       window.location.href="/#/pages/login";
