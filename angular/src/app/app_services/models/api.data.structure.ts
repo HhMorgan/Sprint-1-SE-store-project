@@ -17,6 +17,7 @@ export interface ProductData {
     seller:  String;
 }
 export interface CartData {
+    _id:String;
     name: String;
     price: Number; 
     addedAt: String; 

@@ -5,10 +5,17 @@ var cartSchema = mongoose.Schema({
     type: String,
     required: true,
     trim: true
-  },items : {
-       type : Array ,
-        "default" : [] 
-    }
+  },items : 
+            {
+              name: String,
+              price: Number, 
+              addedAt: {
+                type: Date,
+                default: Date.now
+              }, 
+              seller:  String,
+  } ,
+        
 },{collection: 'Carts'}
 );
 

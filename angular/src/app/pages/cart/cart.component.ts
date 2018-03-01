@@ -64,14 +64,14 @@ export class CartComponent implements OnInit {
   //       console.log(apiresponse);
   //     });
   //   });
-  //   this.source.onRemoved().subscribe((productData :ProductData)=>{
-  //     this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
-  //       console.log(apiresponse);
-  //     });
-  //   });
-  //   this.source.onChanged().subscribe((productData :ProductData)=>{
-  //     // console.log(productData);
-  //   });
+    this.source.onRemoved().subscribe((cartData :CartData)=>{
+      this._apiService.deleteCartProduct(cartData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse);
+      });
+    });
+    // this.source.onChanged().subscribe((productData :CartData)=>{
+    //   // console.log(productData);
+    // });
     this._apiService.getCartProducts().subscribe((apiresponse: APIData)=>{
       const options = [];
       /*
@@ -81,24 +81,27 @@ export class CartComponent implements OnInit {
     seller:  String;
       */
        for (var i = 0 ; i < apiresponse.data.length ; i++ ){
+        apiresponse.data[i].id = (i+1);
         options.push({ name: apiresponse.data[i].items[0], price: apiresponse.data[i].items[1],
           addedAt: apiresponse.data[i].items[2],seller: apiresponse.data[i].items[3] });
           console.log(apiresponse.data[i]);
+          console.log(apiresponse.data.id);
+          
        }
        console.log(options);
        
          //apiresponse.data[i].id = (i+1);
-       this.source.load(options );
+       this.source.load(options);
      });
    }
 
-  // onDeleteConfirm(event): void {
-  //   if (window.confirm('Are you sure you want to delete?')) {
-  //     event.confirm.resolve();
-  //   } else {
-  //     event.confirm.reject();
-  //   }
-  // }
+  onDeleteConfirm(event): void {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
 
   // OnRowSelect(event): void{
   //   // var productData :ProductData = event.data;

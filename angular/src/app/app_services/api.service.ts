@@ -31,11 +31,11 @@ export class APIService {
   getCartProducts(): Observable<APIData> {
     return this.http.get<APIData>(this.apiUrl + 'cart/getProducts').catch(this.errorHandler);
   }
-  deleteCartProduct(cartdata:ProductData):Observable<APIData>{
+  deleteCartProduct(cartdata:CartData):Observable<APIData>{
     return this.http.delete<CartData>(this.apiUrl + '/cart/deleteProduct/'+cartdata._id)
     .catch(this.errorHandler);
   }
-  createCartProduct(cartdata: ProductData): Observable<APIData>{
+  createCartProduct(cartdata: CartData): Observable<APIData>{
     return this.http.post<CartData>(this.apiUrl + 'cart/createProduct', cartdata).catch(this.errorHandler);
   }
   createUser(loginData: LoginData): Observable<APIData> {
