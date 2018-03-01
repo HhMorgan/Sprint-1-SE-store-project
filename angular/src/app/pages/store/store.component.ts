@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
-import { APIData  , ProductData } from '../../app_services/models/api.data.structure'
+import { APIData  , ProductData  , CartData } from '../../app_services/models/api.data.structure'
 
 
 @Component({
@@ -122,9 +122,6 @@ export class StoreComponent implements OnInit {
     });
   }
 
-  addToCart(event): void{
-    console.log("working");
-  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
@@ -152,12 +149,18 @@ export class StoreComponent implements OnInit {
 
 
     if(this.cart != "-1"){
-      this._apiService.addCartProduct(this.productData).subscribe((apiresponse: APIData)=>{
-        console.log(apiresponse);
+      var cardData:CartData;
+      //Add toast with msg Added To Cart
+      cardData._id = this.productData._id;
+      cardData.username = localStorage.getItem("currentUser");
       
+      this._apiService.addCartProduct(cardData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse);
       });
     }
     else{
+
+      //Add Toast with msg Select a Product first
       console.log("Nothing is selected");
     }
 

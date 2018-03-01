@@ -30,6 +30,9 @@ export class LoginComponent implements OnInit {
         this.loginMessage = apiresponse.msg;
         if( apiresponse.msg.includes('Successful') ){ //D2a 7aga mo2kta
           localStorage.setItem('currentUser',JSON.stringify(this.username));
+          //get array from db
+          //intialize 
+
           this.showDashboard();
         } else {
           this.loginMessage = apiresponse.msg;

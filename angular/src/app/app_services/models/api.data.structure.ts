@@ -19,8 +19,5 @@ export interface ProductData {
 }
 export interface CartData {
     _id:String;
-    name: String;
-    price: Number; 
-    addedAt: String; 
-    seller:  String;
+    username:string;
 }

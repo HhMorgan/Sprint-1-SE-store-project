@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
 import { APIData  , CartData } from '../../app_services/models/api.data.structure'
+import { ProductData } from '../../app_services/models/api.data.structure'
 
 
 @Component({
@@ -41,7 +42,7 @@ export class CartComponent implements OnInit {
         title: 'Price',
         type: 'number',
       },
-      addedAt: {
+      createdAt: {
         title: 'CreatedAt',
         type: 'string',
         editable: false,
@@ -64,11 +65,11 @@ export class CartComponent implements OnInit {
   //       console.log(apiresponse);
   //     });
   //   });
-  // this.source.onRemoved().subscribe((productData :ProductData)=>{
-  //   this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
-  //     console.log(apiresponse);
-  //   });
-  // });
+  this.source.onRemoved().subscribe((productData :ProductData)=>{
+    this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
+      console.log(apiresponse);
+    });
+  });
     // this.source.onChanged().subscribe((productData :CartData)=>{
     //   // console.log(productData);
     // });
@@ -98,6 +99,15 @@ export class CartComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+
+   
+  }
+  checkoutClick(event): void{
+
+    this._apiService.getCartProducts().subscribe((apiresponse: APIData)=>{
+
+    });
+
   }
 
   // OnRowSelect(event): void{

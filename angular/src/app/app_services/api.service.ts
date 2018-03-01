@@ -32,25 +32,28 @@ export class APIService {
   createProduct(productdata: ProductData): Observable<APIData>{
     return this.http.post<ProductData>(this.apiUrl + 'product/createProduct', productdata).catch(this.errorHandler);
   }
+
+  ///////Cart
   getCartProducts(): Observable<APIData> {
-    return this.http.get<APIData>(this.apiUrl + 'cart/getProducts').catch(this.errorHandler);
+    return this.http.get<APIData>(this.apiUrl + 'user/viewCart').catch(this.errorHandler);
   }
-  deleteCartProduct(cartdata:CartData):Observable<APIData>{
-    return this.http.delete<CartData>(this.apiUrl + 'cart/deleteProduct/'+cartdata._id)
+  deleteCartProduct(productdata:CartData):Observable<APIData>{
+    return this.http.post<CartData>(this.apiUrl + 'user/deleteCartProduct/',productdata)
     .catch(this.errorHandler);
   }
-  createCartProduct(cartdata: CartData): Observable<APIData>{
-    return this.http.post<CartData>(this.apiUrl + 'cart/createProduct', cartdata).catch(this.errorHandler);
-  }
 
-  addCartProduct(productdata: ProductData): Observable<APIData>{
-    return this.http.post<ProductData>(this.apiUrl + 'cart/createProduct', productdata._id).catch(this.errorHandler);
+  addCartProduct(cartData: CartData): Observable<APIData>{
+    return this.http.post<CartData>(this.apiUrl + 'user/addToCart', cartData).catch(this.errorHandler);
   }
-
+  checkout(): Observable<APIData> {
+    return this.http.post<APIData>(this.apiUrl + 'user/checkout', "checkout").catch(this.errorHandler);
+  };
+  
 
   createUser(loginData: LoginData): Observable<APIData> {
     return this.http.post<APIData>(this.apiUrl + 'user/create', loginData).catch(this.errorHandler);
   };
+ 
   login(loginData: LoginData): Observable<APIData> {
     return this.http.post<APIData>(this.apiUrl + 'auth/login', loginData).catch(this.errorHandler);
   }

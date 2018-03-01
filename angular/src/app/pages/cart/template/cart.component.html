@@ -6,5 +6,7 @@
   <nb-card-body>
     <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
+
+    <button (click) = "checkoutClick($event)">Checkout</button> 
   </nb-card-body>
 </nb-card>
