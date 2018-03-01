@@ -18,6 +18,9 @@ router.post('/user/create', UserController.userCreate);
 
 router.patch('/product/updateProduct/:productId', ProductController.updateProduct);
 router.delete('/product/deleteProduct/:productId', ProductController.deleteProduct);
-router.post('/user/addToCart', UserController.addToCart)
+router.post('/user/addToCart', UserController.addToCart);
+router.get('/user/viewCart', UserController.viewCart);
+
+
 
 module.exports = router;
