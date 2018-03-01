@@ -13,7 +13,12 @@ import { APIData  , ProductData } from '../../app_services/models/api.data.struc
 
 export class StoreComponent implements OnInit {
 
+
+  private cart: String;
+  private productData :ProductData;
+
   ngOnInit() {
+    
   }
 
   settings = {
@@ -21,12 +26,19 @@ export class StoreComponent implements OnInit {
     editor: {
       config: false
     },
+    cart:{
+      
+    },
     add: {
       inputClass: "ID",
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
     },
+
+   
+
+    
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
@@ -38,11 +50,14 @@ export class StoreComponent implements OnInit {
     },
     actions: {
       //add: false,
-     // edit: false,
+     //edit: false,
       // delete: false,
       columnTitle: 'Search'
     },
     columns: {
+     
+  
+
       id: {
         title: 'ID',
         type: 'number',
@@ -75,6 +90,7 @@ export class StoreComponent implements OnInit {
         editable: false,
         addable: false,
       },
+      
     },
   };
 
@@ -86,6 +102,7 @@ export class StoreComponent implements OnInit {
         console.log(apiresponse);
       });
     });
+   
     this.source.onRemoved().subscribe((productData :ProductData)=>{
       this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
         console.log(apiresponse);
@@ -105,6 +122,10 @@ export class StoreComponent implements OnInit {
     });
   }
 
+  addToCart(event): void{
+    console.log("working");
+  }
+
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
@@ -114,7 +135,32 @@ export class StoreComponent implements OnInit {
   }
 
   OnRowSelect(event): void{
-    // var productData :ProductData = event.data;
-    // console.log(productData);
+     this.productData = event.data;
+     if(this.cart == this.productData._id){
+       this.cart="-1";
+     }
+     else if(this.cart != this.productData._id || this.cart=="-1"){
+      this.cart=this.productData._id;
+     }
+     
+     console.log( this.productData);
+     
+    //  console.log(productData);
+  }
+
+  cartClick(event):void{
+
+
+    if(this.cart != "-1"){
+      this._apiService.addCartProduct(this.productData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse);
+      
+      });
+    }
+    else{
+      console.log("Nothing is selected");
+    }
+
+   
   }
 }
