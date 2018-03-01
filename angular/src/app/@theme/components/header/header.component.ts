@@ -11,7 +11,7 @@ import { AnalyticsService } from '../../../@core/utils/analytics.service';
 })
 export class HeaderComponent implements OnInit {
   status = 'login';
-
+  name;
   @Input() position = 'normal';
 
   user: any;
@@ -52,11 +52,13 @@ export class HeaderComponent implements OnInit {
     if((this.status=='login') && (localStorage.getItem('currentUser')=='null')){
       window.location.href="/#/pages/login";
       this.status='logout';
+      this.name='Our store welcomes you';
     }
   else if(localStorage.getItem('currentUser')!='null'&&this.status=='logout'){
       this.status='login';
     localStorage.setItem('currentUser','null');
     console.log(localStorage.getItem('currentuser') );
+    this.name='';
   }
  
   }

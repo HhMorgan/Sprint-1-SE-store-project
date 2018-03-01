@@ -12,18 +12,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
 
-  {
-    title: 'Auth',
-    icon: 'nb-locked',
-    children: [
-      {
-        title: 'Login',
-        link: '/pages/login',
-      },
-      {
-        title: 'Register',
-        link: '/pages/signup',
-      },
-    ],
-  },
+ 
 ];
