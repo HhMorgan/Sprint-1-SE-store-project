@@ -16,7 +16,7 @@ module.exports.userlogin = function(req, res, next) {
       });
     }
     User.findOne({ username:{ $eq: req.body.username } , password:{ $eq: req.body.password } }, function(err, user){
-      if (err) 
+      if (err)
         throw err;
       if (user == null){
         res.status(201).json({

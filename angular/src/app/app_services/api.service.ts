@@ -45,7 +45,6 @@ export class APIService {
   createUser(loginData: LoginData): Observable<APIData> {
     return this.http.post<APIData>(this.apiUrl + 'user/create', loginData).catch(this.errorHandler);
   };
-
   login(loginData: LoginData): Observable<APIData> {
     return this.http.post<APIData>(this.apiUrl + 'auth/login', loginData).catch(this.errorHandler);
   }
