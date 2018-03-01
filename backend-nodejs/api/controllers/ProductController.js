@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
 moment = require('moment'),
 Product = mongoose.model('Product'),
 Validations = require('../utils/Validations');
-  
+
 
 module.exports.getProduct = function(req, res, next) {
   if (!Validations.isObjectId(req.params.productId)) {

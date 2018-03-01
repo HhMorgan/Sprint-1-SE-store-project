@@ -15,7 +15,10 @@ var productSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  updatedAt: Date
+  updatedAt: Date,
+  seller: {
+    type: String,
+  },
 },{collection: 'Products'}
 );
 
