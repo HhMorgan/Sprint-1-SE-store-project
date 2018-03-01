@@ -1,20 +1,34 @@
 var mongoose = require('mongoose');
 
 var cartSchema = mongoose.Schema({
+  _id:{
+      type: Number,
+      required: true,
+      trim: true
+  },
   username: {
     type: String,
     required: true,
     trim: true
-  },items : 
-            {
-              name: String,
-              price: Number, 
-              addedAt: {
-                type: Date,
-                default: Date.now
-              }, 
-              seller:  String,
-  } ,
+  }, name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  price:{
+    type: Number,
+    required: true,
+    trim: true
+  },
+  addedAt: {
+    type: Date,
+    default: Date.now
+  }, 
+  seller:  {
+    type: String,
+    required: true,
+    trim: true
+  },
         
 },{collection: 'Carts'}
 );

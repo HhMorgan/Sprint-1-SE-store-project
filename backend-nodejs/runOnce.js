@@ -20,10 +20,11 @@ MongoClient.connect(url, function(err, db) {
     { username: 'manager', password: 'manager'}
   ];
   var cartsObj = [
-    { username: '1', items: ['a','b','c','d']},
-    { username: '2', items: ['e','f','g','h']},
-    { username: 'admin', items: ['i','j','k','l']},
-    { username: 'manager', items: ['m','n','o','p']},
+    { username: '1', name:'Dragon Quest XI',price:59.99,seller:'admin'},
+    { username: '2', name:'Monster Hunter World',price:59.99,seller:'user'},
+    { username: 'user', name:'Nier Automata',price:59.99,seller:'manager'},
+    { username: 'admin', name:'Final Fantasy XV RE',price:49.99,seller:'2'},
+    { username: 'manager', name:'Persona 5',price:59.99,seller:'1'},
   ];
   var collectionsObj = [
     {name: 'Products', data: null},

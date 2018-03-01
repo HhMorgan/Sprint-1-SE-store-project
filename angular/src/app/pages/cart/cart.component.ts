@@ -73,25 +73,22 @@ export class CartComponent implements OnInit {
     //   // console.log(productData);
     // });
     this._apiService.getCartProducts().subscribe((apiresponse: APIData)=>{
-      const options = [];
+     // const options = [];
       /*
       name: String;
     price: Number; 
     addedAt: String; 
     seller:  String;
       */
-       for (var i = 0 ; i < apiresponse.data.length ; i++ ){
+     
+        for (var i = 0 ; i < apiresponse.data.length ; i++ ){
         apiresponse.data[i].id = (i+1);
-        options.push({ name: apiresponse.data[i].items[0], price: apiresponse.data[i].items[1],
-          addedAt: apiresponse.data[i].items[2],seller: apiresponse.data[i].items[3] });
-          console.log(apiresponse.data[i]);
-          console.log(apiresponse.data.id);
-          
-       }
-       console.log(options);
-       
-         //apiresponse.data[i].id = (i+1);
-       this.source.load(options);
+      console.log(apiresponse.data[i]);
+      console.log(apiresponse.data[i].id);
+      
+        }
+      this.source.load( apiresponse.data);
+      
      });
    }
 
