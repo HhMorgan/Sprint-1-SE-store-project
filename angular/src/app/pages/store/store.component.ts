@@ -91,8 +91,10 @@ export class StoreComponent implements OnInit {
         console.log(apiresponse);
       });
     });
-    this.source.onChanged().subscribe((productData :ProductData)=>{
-      // console.log(productData);
+    this.source.onUpdated().subscribe((productData :ProductData)=>{
+      this._apiService.editProduct(productData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse);
+      });
     });
     this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
       for (var i = 0 ; i < apiresponse.data.length ; i++ )

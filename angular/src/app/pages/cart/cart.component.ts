@@ -82,9 +82,9 @@ export class CartComponent implements OnInit {
       */
      
         for (var i = 0 ; i < apiresponse.data.length ; i++ ){
-        apiresponse.data[i].id = (i+1);
-      console.log(apiresponse.data[i]);
-      console.log(apiresponse.data[i].id);
+          apiresponse.data[i]._id = (i+1);
+          console.log(apiresponse.data[i]);
+          console.log(apiresponse.data[i]._id);
       
         }
       this.source.load( apiresponse.data);

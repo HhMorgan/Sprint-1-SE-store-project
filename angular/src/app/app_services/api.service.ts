@@ -21,6 +21,10 @@ export class APIService {
   getProducts(): Observable<APIData> {
     return this.http.get<APIData>(this.apiUrl + 'product/getProducts').catch(this.errorHandler);
   }
+  editProduct(productdata:ProductData):Observable<APIData>{
+    return this.http.patch<ProductData>(this.apiUrl + '/product/updateProduct/'+productdata._id,productdata)
+    .catch(this.errorHandler);
+  }
   deleteProduct(productdata:ProductData):Observable<APIData>{
     return this.http.delete<ProductData>(this.apiUrl + '/product/deleteProduct/'+productdata._id)
     .catch(this.errorHandler);
@@ -32,7 +36,7 @@ export class APIService {
     return this.http.get<APIData>(this.apiUrl + 'cart/getProducts').catch(this.errorHandler);
   }
   deleteCartProduct(cartdata:CartData):Observable<APIData>{
-    return this.http.delete<CartData>(this.apiUrl + '/cart/deleteProduct/'+cartdata._id)
+    return this.http.delete<CartData>(this.apiUrl + 'cart/deleteProduct/'+cartdata._id)
     .catch(this.errorHandler);
   }
   createCartProduct(cartdata: CartData): Observable<APIData>{
