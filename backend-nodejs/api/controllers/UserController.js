@@ -2,6 +2,8 @@ var mongoose = require('mongoose'),
 moment = require('moment'),
 Validations = require('../utils/Validations'),
 User = mongoose.model('User');
+Product = mongoose.model('Product');
+
 
 
 module.exports.userlogin = function(req, res, next) {
@@ -98,6 +100,28 @@ module.exports.addToCart = function(req, res, next) {
       err: null,
       msg: 'Product was added successfully to the cart.',
       data: updatedCart
+    });
+  });
+};
+
+module.exports.viewCart= function(req, res, next) {
+  User.findOne( {username:{ $eq: req.body.username }} ).exec(function(err, cart) {
+    if (err) {
+      return next(err);
+    }
+    res.status(200).json({
+      err: null,
+      msg: 'Cart retrieved successfully.',
+      data: Product.findById(cart.cart).exec(function(err, product) {
+        if (err) {
+          return next(err);
+        }
+        res.status(200).json({
+          err: null,
+          msg: 'Products retrieved successfully.',
+          data: product
+        });
+      })
     });
   });
 };
