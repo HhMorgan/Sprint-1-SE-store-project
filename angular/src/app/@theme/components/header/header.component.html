@@ -21,6 +21,10 @@
   </nb-action>
   <nb-action class="control-item">
     <nb-search type="rotate-layout" (click)="startSearch()"></nb-search>
-      <button class="btn"(click)="logout()">Logout</button>
   </nb-action>
+<nb-action>
+    <button class="btn"(click)="logout()">{{status}}</button>
+ </nb-action>
+ <nb-action>    <a class="button" href="/#/pages/signup">Sign up</a>
+ </nb-action> 
 </nb-actions>

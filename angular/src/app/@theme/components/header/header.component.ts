@@ -10,7 +10,7 @@ import { AnalyticsService } from '../../../@core/utils/analytics.service';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-
+  status = 'login';
 
   @Input() position = 'normal';
 
@@ -47,10 +47,19 @@ export class HeaderComponent implements OnInit {
     this.analyticsService.trackEvent('startSearch');
   }
 
-  logout(){
+ logout(){
+    console.log(this.status);
+    console.log(localStorage.getItem('currentUser'));
+    if((this.status=='login') && (localStorage.getItem('currentUser')=='null')){
+      window.location.href="/#/pages/login";
+      this.status='logout';
+    }
+  else if(localStorage.getItem('currentUser')!='null'&&this.status=='logout'){
+      this.status='login';
     localStorage.setItem('currentUser','null');
     console.log(localStorage.getItem('currentuser') );
-
+  }
+ 
   }
 
   }
