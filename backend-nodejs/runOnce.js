@@ -17,9 +17,16 @@ MongoClient.connect(url, function(err, db) {
   {id: 6, name: 'test6',price: 700,createdAt: '',updatedAt:'',seller:'boudi'},
   {id: 7, name: 'test7',price: 800,createdAt: '',updatedAt:'',seller:'boudi'},
   {id: 8, name: 'test8',price: 900,createdAt: '',updatedAt:'',seller:'boudi'},
+
   {id: 8, name: 'test9',price: 900,createdAt: '',updatedAt:'',seller:'boudi'},
   {id: 8, name: 'test10',price: 900,createdAt: '',updatedAt:'',seller:'boudi'},
-
+  {id: 9, name: 'kiwi',price: 20,createdAt: '1-2-2018',updatedAt:'',seller:'Mariam'},
+  {id: 10, name: 'Banana',price: 30,createdAt: '2-1-2018',updatedAt:'',seller:'Mariam'},
+  {id: 11, name: 'Apple',price: 20,createdAt: '3-1-2018',updatedAt:'',seller:'Mariam'},
+  {id: 12, name: 'Peach',price: 20,createdAt: '1-2-2018',updatedAt:'',seller:'Mariam'},
+  {id: 13, name: 'Strawberry',price: 25,createdAt: '2-1-2018',updatedAt:'',seller:'Mariam'},
+  {id: 14, name: 'Apricot',price: 30,createdAt: '1-1-2018',updatedAt:'',seller:'Mariam'},
+  
 
 
   ];
