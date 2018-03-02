@@ -14,6 +14,7 @@ import { APIData , ProductData } from '../../app_services/models/api.data.struct
 export class CartComponent implements OnInit {
 
   ngOnInit() {
+    
   }
 
   settings = {

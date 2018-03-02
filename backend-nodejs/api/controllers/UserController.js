@@ -1,10 +1,8 @@
 var mongoose = require('mongoose'),
 moment = require('moment'),
-Validations = require('../utils/Validations'),
 User = mongoose.model('User');
-Product = mongoose.model('Product');
-
-
+Product = mongoose.model('Product'),
+Validations = require('../utils/Validations');
 
 module.exports.userlogin = function(req, res, next) {
     var valid =  req.body.username && Validations.isString(req.body.username) &&
@@ -83,7 +81,7 @@ module.exports.addToCart = function(req, res, next) {
       data: null
     });
   }
-  User.findOneAndUpdate( req.body.username ,
+  User.findOneAndUpdate( { username:{ $eq: req.body.username } } ,
     {
       $push: { cart: req.body.productId }
     }
@@ -105,30 +103,25 @@ module.exports.addToCart = function(req, res, next) {
 };
 
 module.exports.viewCart= function(req, res, next) {
-  User.findOne( {username:{ $eq: req.body.username }} ).exec(function(err, cart) {
+  User.findOne( {username:{ $eq: req.params.username }} ).exec(function(err, cart) {
     if (err) {
       return next(err);
     }
-    res.status(200).json({
-      err: null,
-      msg: 'Cart retrieved successfully.',
-      data: Product.findById(cart.cart).exec(function(err, product) {
+      Product.findById(cart.cart).exec(function(err, product) { //Needs Fixing
         if (err) {
           return next(err);
         }
         res.status(200).json({
           err: null,
-          msg: 'Products retrieved successfully.',
+          msg: 'Cart retrieved successfully.',
           data: product
         });
       })
-    });
   });
 };
 
 module.exports.checkout = function(req, res, next) {
   var valid =  req.body.username && Validations.isString(req.body.username) 
-    console.log(req.body);
   if (!valid) {
     return res.status(422).json({
       err: null,
@@ -136,10 +129,8 @@ module.exports.checkout = function(req, res, next) {
       data: null
     });
   }
-  User.findOneAndUpdate( req.body.username ,
+  User.findOneAndUpdate( { username:{ $eq: req.body.username } } ,
     {
-      
-      
       $set: { cart: [] }
     }
   ).exec(function(err, cart) {
