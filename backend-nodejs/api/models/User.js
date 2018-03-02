@@ -10,6 +10,10 @@ var userSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  type: {
+    type: String,
+    required: true
+  },
   cart:{
     type: Array,
     "default":[]
