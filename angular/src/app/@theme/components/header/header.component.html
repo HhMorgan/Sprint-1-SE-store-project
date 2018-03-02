@@ -17,6 +17,8 @@
   <nb-action icon="nb-grid-b" class="toggle-layout" (click)="toggleSettings()"></nb-action>
   <nb-action *nbIsGranted="['view', 'user']" >
     <nb-user [nbContextMenu]="userMenu" [name]="user?.name" [picture]="'assets/images/kitten-cosmic.png'"></nb-user>
+    <button id ="t1" style="color:white;font-size:150%;background: transparent;
+    border: none !important; " ></button> 
   </nb-action>
   <nb-action class="control-item">
     <nb-search type="rotate-layout" (click)="startSearch()"></nb-search>
