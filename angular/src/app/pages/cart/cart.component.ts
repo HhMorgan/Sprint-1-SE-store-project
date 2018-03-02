@@ -95,6 +95,7 @@ export class CartComponent implements OnInit {
       //Show Message You are Not logged
     } else
       this._apiService.cartCheckout(this.userCart).subscribe((apiresponse: APIData)=>{
+        this.reloadData();
     });
   }
 }
