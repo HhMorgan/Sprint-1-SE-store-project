@@ -46,4 +46,13 @@ export class HeaderComponent implements OnInit {
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
   }
-}
+
+  logout(){
+    //localStorage.setItem('currentUser','null');
+    //localStorage.removeItem('currentUser');
+    localStorage.clear()
+    console.log(localStorage.getItem('currentuser') );
+
+  }
+
+  }

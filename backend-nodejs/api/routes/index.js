@@ -23,10 +23,6 @@ router.get('/cart/getProduct/:productId', CartController.getProduct);
 router.get('/cart/getProductsBelowPrice/:price',
 CartController.getProductsBelowPrice
 );
-router.post('/cart/createProduct', CartController.createProduct);
 
-
-router.patch('/cart/updateProduct/:productId', CartController.updateProduct);
-router.delete('/cart/deleteProduct/:productId', CartController.deleteProduct);
 module.exports = router;
 

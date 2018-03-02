@@ -11,7 +11,19 @@ import { Component } from '@angular/core';
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive >
+<<<<<<< HEAD
         
+=======
+<<<<<<< HEAD
+        <nb-sidebar-header>
+          <a href="#" class="btn btn-hero-success main-btn">
+            <i class="ion ion-social-github"></i> <span>Support Us</span>
+          </a>
+        </nb-sidebar-header>
+=======
+        
+>>>>>>> dev
+>>>>>>> 546c91bc83e3ca1e3c7f95290632f3b58d0f9411
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 

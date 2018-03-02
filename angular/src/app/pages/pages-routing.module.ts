@@ -18,7 +18,6 @@ const routes: Routes = [{
   }, {
     path: 'signup',
     loadChildren: './signup/signup.module#SignupModule',
-    
   }, {
     path: 'store',
     component: StoreComponent

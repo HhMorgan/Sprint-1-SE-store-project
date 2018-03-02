@@ -14,6 +14,34 @@ import { APIData  , ProductData } from '../../app_services/models/api.data.struc
 export class StoreComponent implements OnInit {
 
   ngOnInit() {
+    let user: string = localStorage.getItem('type');
+    if(JSON.parse(user)=== "user"){
+      this.settings.actions={
+        add: false,
+      edit: false,
+       delete: false,
+       columnTitle: 'Search',
+      };
+     
+    }
+    else if(JSON.parse(user) === "admin"){
+      this.settings.actions={
+        add: true,
+      edit: true,
+       delete: true,
+       columnTitle: 'Search',
+      };
+     
+    }
+    else if(JSON.parse(user) === "manager"){
+      this.settings.actions={
+        add: true,
+      edit: true,
+       delete: false,
+       columnTitle: 'Search',
+      };
+     
+    }
   }
 
   settings = {
@@ -37,9 +65,9 @@ export class StoreComponent implements OnInit {
       confirmDelete: true,
     },
     actions: {
-      //add: false,
-     // edit: false,
-      // delete: false,
+      add: false,
+      edit: false,
+       delete: false,
       columnTitle: 'Search'
     },
     columns: {
@@ -114,7 +142,5 @@ export class StoreComponent implements OnInit {
   }
 
   OnRowSelect(event): void{
-    // var productData :ProductData = event.data;
-    // console.log(productData);
   }
 }
