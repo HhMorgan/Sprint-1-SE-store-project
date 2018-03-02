@@ -39,9 +39,9 @@ export class StoreComponent implements OnInit {
       confirmDelete: true,
     },
     actions: {
-      // add: false,
-      // edit: false,
-      // delete: false,
+       add: false,
+      edit: false,
+       delete: false,
       columnTitle: 'Actions'
     },
     columns: {
@@ -135,6 +135,36 @@ export class StoreComponent implements OnInit {
   ngOnInit() {
     this.reloadData();
     this.logindata.username = localStorage.getItem("currentUser");
+    let user: string = localStorage.getItem('type');
+    if(JSON.parse(user)=== "user"){
+      console.log('1');
+      this.settings.actions={
+        add: false,
+      edit: false,
+       delete: false,
+       columnTitle: 'Actions',
+      };
+    }
+    else if(JSON.parse(user) === "admin"){
+      console.log('3');
+      this.settings.actions={
+        add: true,
+      edit: true,
+       delete: true,
+       columnTitle: 'Actions',
+      };
+     
+    }
+    else if(JSON.parse(user) === "manager"){
+      console.log('2');
+      this.settings.actions={
+        add: true,
+      edit: true,
+       delete: false,
+       columnTitle: 'Actions',
+      };
+     
+    }
   }
 
   private reloadData(): void {
