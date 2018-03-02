@@ -16,6 +16,10 @@ export class StoreComponent implements OnInit {
   ngOnInit() {
     let user: string = localStorage.getItem('type');
     if(JSON.parse(user)=== "user"){
+<<<<<<< HEAD
+=======
+      console.log('1');
+>>>>>>> 49e181c3d40aef0d0e65936aa2b3cb8d07e8caaf
       this.settings.actions={
         add: false,
       edit: false,
@@ -25,6 +29,10 @@ export class StoreComponent implements OnInit {
      
     }
     else if(JSON.parse(user) === "admin"){
+<<<<<<< HEAD
+=======
+      console.log('3');
+>>>>>>> 49e181c3d40aef0d0e65936aa2b3cb8d07e8caaf
       this.settings.actions={
         add: true,
       edit: true,
@@ -34,6 +42,10 @@ export class StoreComponent implements OnInit {
      
     }
     else if(JSON.parse(user) === "manager"){
+<<<<<<< HEAD
+=======
+      console.log('2');
+>>>>>>> 49e181c3d40aef0d0e65936aa2b3cb8d07e8caaf
       this.settings.actions={
         add: true,
       edit: true,

@@ -31,8 +31,7 @@ export class SignupComponent implements OnInit {
             if(apiresponse.msg.includes('Successfully'))
               this.showDashboard();
             this.registerMessageStatus = apiresponse.msg;
-           // localStorage.setItem('type',JSON.stringify('user'));
-          });
+         });
         } else 
           this.registerMessageStatus = "Password Mismatch";
       } else 
