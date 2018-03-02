@@ -16,6 +16,7 @@ import 'style-loader!angular2-toaster/toaster.css';
 export class StoreComponent implements OnInit {
 
   private cart: String;
+  private cardData = <CartData>{};
   private logindata = <LoginData>{};
   private productData  = <ProductData>{};
 
@@ -81,7 +82,6 @@ export class StoreComponent implements OnInit {
     },
   };
 
-  private cardData = <CartData>{};
   config: ToasterConfig;
   source: LocalDataSource = new LocalDataSource();
 
