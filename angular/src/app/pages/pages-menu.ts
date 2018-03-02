@@ -17,19 +17,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Cart',
     icon: 'nb-coffee-maker',
     link: '/pages/cart',
-},
-  {
-    title: 'Auth',
-    icon: 'nb-locked',
-    children: [
-      {
-        title: 'Login',
-        link: '/pages/login',
-      },{
-        title: 'Register',
-        link: '/pages/signup',
-      },
-   ],
- },
-
+  }
 ];

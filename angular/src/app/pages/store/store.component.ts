@@ -16,8 +16,8 @@ import 'style-loader!angular2-toaster/toaster.css';
 export class StoreComponent implements OnInit {
 
   private cart: String;
-  private logindata: LoginData;
-  private productData :ProductData;
+  private logindata = <LoginData>{};
+  private productData  = <ProductData>{};
 
   settings = {
 
@@ -91,7 +91,7 @@ export class StoreComponent implements OnInit {
     });
 
     this.source.onAdded().subscribe((productData :ProductData)=>{
-      productData.seller = this.cardData.username;
+      productData.seller = this.logindata.username;
       this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
         this.showToast( 'default' , 'Message', apiresponse.msg.toString());
         this.reloadData();

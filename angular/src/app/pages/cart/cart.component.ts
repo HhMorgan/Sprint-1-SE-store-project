@@ -13,7 +13,7 @@ import { APIData , ProductData , CartData } from '../../app_services/models/api.
 
 export class CartComponent implements OnInit {
   
-  private userCart =<CartData>{};
+  private userCart = <CartData>{};
 
   settings = {
 

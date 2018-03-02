@@ -10,8 +10,10 @@ import { AnalyticsService } from '../../../@core/utils/analytics.service';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
+  name;
+  sign = 'SignUp';
+  status = 'login';
 
-sign = 'SignUp'
   @Input() position = 'normal';
 
   user: any;
@@ -46,22 +48,27 @@ sign = 'SignUp'
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
   }
-
+  
   logout(){
-    localStorage.setItem('currentUser','null');
-    console.log(localStorage.getItem('currentuser') );
-
+  //  console.log(localStorage.getItem('currentUser'));
+   if((this.status == 'login' ) && (localStorage.getItem('currentUser') == null)){
+     window.location.href="/#/pages/login";
+     this.status='logout';
+     this.name='Our store welcomes you';
+    } else if( localStorage.getItem('currentUser') != null && this.status == 'logout'){
+      this.status='login';
+      localStorage.setItem('currentUser','null');
+      // console.log(localStorage.getItem('currentuser') );
+      this.name='';
+    }
   }
+
   signup(){
     if(this.sign == 'SignUp'){
       window.location.href="/#/pages/signup";
       this.sign = 'login'
-  }
-  else if(this.sign == 'login'){
+  } else if(this.sign == 'login'){
     window.location.href="/#/pages/login";
     this.sign = 'SignUp'
-}
- 
-
-
-  }}
+  }
+}}
