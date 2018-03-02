@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     if(this.username != null && this.password != null){
       this._apiService.login({ username: this.username, password: this.password, type : this.type }).subscribe((apiresponse: APIData)=>{
         this.loginMessage = apiresponse.msg;
+        console.log(apiresponse.msg);
         if( apiresponse.msg.includes('Successful') ){ 
           localStorage.setItem('currentUser',this.username);
           if( apiresponse.msg.includes('user') ){
