@@ -26,11 +26,11 @@ MongoClient.connect(url, function(err, db) {
   ];
 
   var usersObj = [
-    { username: '1', password: '1'},
-    { username: '2', password: '2'},
-    { username: 'user', password: 'user'},
-    { username: 'admin', password: 'admin'},
-    { username: 'manager', password: 'manager'}
+    { username: '1', password: '1',type:'user'},
+    { username: '2', password: '2',type:'admin'},
+    { username: 'user', password: 'user',type:'user'},
+    { username: 'admin', password: 'admin',type:'admin'},
+    { username: 'manager', password: 'manager',type:'manager'}
   ];
   var collectionsObj = [
     {name: 'Products', data: null},
