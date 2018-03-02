@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
 import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
-import { APIData  , ProductData  , CartData } from '../../app_services/models/api.data.structure'
+import { APIData  , ProductData  , CartData , LoginData } from '../../app_services/models/api.data.structure'
 
 import 'style-loader!angular2-toaster/toaster.css';
 
@@ -16,15 +16,13 @@ import 'style-loader!angular2-toaster/toaster.css';
 export class StoreComponent implements OnInit {
 
   private cart: String;
+  private logindata: LoginData;
   private productData :ProductData;
 
   settings = {
 
     editor: {
       // config: false
-    },
-    cart:{
-      
     },
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -93,6 +91,7 @@ export class StoreComponent implements OnInit {
     });
 
     this.source.onAdded().subscribe((productData :ProductData)=>{
+      productData.seller = this.cardData.username;
       this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
         this.showToast( 'default' , 'Message', apiresponse.msg.toString());
         this.reloadData();
@@ -135,7 +134,7 @@ export class StoreComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
-    this.cardData.username = localStorage.getItem("currentUser");
+    this.logindata.username = localStorage.getItem("currentUser");
   }
 
   private reloadData(): void {
@@ -166,12 +165,14 @@ export class StoreComponent implements OnInit {
   cartClick(event):void {
     if(this.cart != "-1") {
       this.cardData.productId = this.productData._id;
-      if(this.cardData.username == null){
+      if(this.logindata.username == null){
         this.showToast ('info' , 'Message' , "You must login To add a Product to your Cart");
-      } else 
+      } else {
+        this.cardData.username = this.logindata.username.toString();
         this._apiService.addProductToCart(this.cardData).subscribe((apiresponse: APIData)=>{
           this.showToast ('default' , 'Message' , apiresponse.msg.toString());
         });
+      }
     } else 
         this.showToast( 'default' , 'Message', "Nothing is selected");
   }
