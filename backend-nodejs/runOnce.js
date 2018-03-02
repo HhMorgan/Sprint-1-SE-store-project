@@ -17,6 +17,9 @@ MongoClient.connect(url, function(err, db) {
   {id: 6, name: 'test6',price: 700,createdAt: '',updatedAt:'',seller:'boudi'},
   {id: 7, name: 'test7',price: 800,createdAt: '',updatedAt:'',seller:'boudi'},
   {id: 8, name: 'test8',price: 900,createdAt: '',updatedAt:'',seller:'boudi'},
+  {id: 8, name: 'test9',price: 900,createdAt: '',updatedAt:'',seller:'boudi'},
+  {id: 8, name: 'test10',price: 900,createdAt: '',updatedAt:'',seller:'boudi'},
+
 
 
   ];
