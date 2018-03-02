@@ -74,6 +74,7 @@ module.exports.addToCart = function(req, res, next) {
   var valid =  req.body.username && Validations.isString(req.body.username) &&
     req.body.productId && Validations.isObjectId(req.body.productId);
     console.log(req.body);
+    console.log(valid);
   if (!valid) {
     return res.status(422).json({
       err: null,
@@ -103,20 +104,27 @@ module.exports.addToCart = function(req, res, next) {
 };
 
 module.exports.viewCart= function(req, res, next) {
-  User.findOne( {username:{ $eq: req.params.username }} ).exec(function(err, cart) {
+  User.findOne( {username:{ $eq: req.params.username }} ).exec(function(err, user) {
     if (err) {
       return next(err);
     }
-      Product.findById(cart.cart).exec(function(err, product) { //Needs Fixing
-        if (err) {
-          return next(err);
-        }
-        res.status(200).json({
-          err: null,
-          msg: 'Cart retrieved successfully.',
-          data: product
-        });
-      })
+    if (user == null) {
+      return res.status(200).json({
+        err: null,
+        msg: 'Unable To load Cart',
+        data: null
+      });
+    }
+    Product.find({_id:{ $in:  user.cart }}).exec(function(err, cart) {
+      if (err) {
+        return next(err);
+      }
+      res.status(200).json({
+        err: null,
+        msg: 'Cart retrieved successfully.',
+        data: cart
+      });
+    })
   });
 };
 

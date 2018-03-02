@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
 import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
-import { APIData  , ProductData } from '../../app_services/models/api.data.structure';
+import { APIData  , ProductData  , CartData } from '../../app_services/models/api.data.structure'
 
 import 'style-loader!angular2-toaster/toaster.css';
 
@@ -15,13 +15,18 @@ import 'style-loader!angular2-toaster/toaster.css';
 
 export class StoreComponent implements OnInit {
 
+  private cart: String;
+  private productData :ProductData;
+
   settings = {
-    // mode: 'external',
+
     editor: {
       // config: false
     },
+    cart:{
+      
+    },
     add: {
-      // inputClass: "ID",
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
@@ -74,9 +79,11 @@ export class StoreComponent implements OnInit {
         editable: false,
         addable: false,
       },
+      
     },
   };
 
+  private cardData = <CartData>{};
   config: ToasterConfig;
   source: LocalDataSource = new LocalDataSource();
 
@@ -84,6 +91,7 @@ export class StoreComponent implements OnInit {
     this.source.onChanged().subscribe(()=>{
       // this.fetchData();
     });
+
     this.source.onAdded().subscribe((productData :ProductData)=>{
       this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
         this.showToast( 'default' , 'Message', apiresponse.msg.toString());
@@ -127,6 +135,7 @@ export class StoreComponent implements OnInit {
 
   ngOnInit() {
     this.reloadData();
+    this.cardData.username = localStorage.getItem("currentUser");
   }
 
   private reloadData(): void {
@@ -146,7 +155,24 @@ export class StoreComponent implements OnInit {
   }
 
   OnRowSelect(event): void {
-    var productData :ProductData = event.data;
-    // console.log(productData);
+     this.productData = event.data;
+     if(this.cart == this.productData._id){
+       this.cart="-1";
+     } else if(this.cart != this.productData._id || this.cart=="-1") {
+       this.cart=this.productData._id;
+     }
+  }
+
+  cartClick(event):void {
+    if(this.cart != "-1") {
+      this.cardData.productId = this.productData._id;
+      if(this.cardData.username == null){
+        this.showToast ('info' , 'Message' , "You must login To add a Product to your Cart");
+      } else 
+        this._apiService.addProductToCart(this.cardData).subscribe((apiresponse: APIData)=>{
+          this.showToast ('default' , 'Message' , apiresponse.msg.toString());
+        });
+    } else 
+        this.showToast( 'default' , 'Message', "Nothing is selected");
   }
 }

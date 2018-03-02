@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
-import { APIData , ProductData } from '../../app_services/models/api.data.structure'
+import { APIData , ProductData , CartData } from '../../app_services/models/api.data.structure'
 
 
 @Component({
@@ -12,13 +12,11 @@ import { APIData , ProductData } from '../../app_services/models/api.data.struct
 })
 
 export class CartComponent implements OnInit {
-
-  ngOnInit() {
-    
-  }
+  
+  private userCart =<CartData>{};
 
   settings = {
-    // mode: 'external',
+
     editor: {
       config: false
     },
@@ -30,7 +28,7 @@ export class CartComponent implements OnInit {
     actions: {
       add: false,
       edit: false,
-      // delete: false,
+      delete: false, //temp
       columnTitle: 'Search'
     },
     columns: {
@@ -42,7 +40,7 @@ export class CartComponent implements OnInit {
         title: 'Price',
         type: 'number',
       },
-      addedAt: {
+      createdAt: {
         title: 'CreatedAt',
         type: 'string',
         editable: false,
@@ -59,39 +57,30 @@ export class CartComponent implements OnInit {
 
   source: LocalDataSource = new LocalDataSource();
 
-   constructor(private _apiService: APIService) {
-  //   this.source.onAdded().subscribe((productData :ProductData)=>{
-  //     this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
-  //       console.log(apiresponse);
-  //     });
-  //   });
-  // this.source.onRemoved().subscribe((productData :ProductData)=>{
-  //   this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
-  //     console.log(apiresponse);
-  //   });
-  // });
-    // this.source.onChanged().subscribe((productData :CartData)=>{
-    //   // console.log(productData);
-    // });
-    this._apiService.getCartProducts().subscribe((apiresponse: APIData)=>{
-     // const options = [];
-      /*
-      name: String;
-    price: Number; 
-    addedAt: String; 
-    seller:  String;
-      */
-     
-        for (var i = 0 ; i < apiresponse.data.length ; i++ ){
-          apiresponse.data[i]._id = (i+1);
-          console.log(apiresponse.data[i]);
-          console.log(apiresponse.data[i]._id);
-      
-        }
-      this.source.load( apiresponse.data);
-      
-     });
-   }
+  constructor(private _apiService: APIService) {
+
+    this.source.onRemoved().subscribe((productData :ProductData)=>{
+      this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse);
+      });
+    });
+   
+  }
+
+  ngOnInit() {
+    this.userCart.username = localStorage.getItem("currentUser");
+    console.log(this.userCart.username);
+    if(this.userCart.username == null){
+      //Show Message You are Not logged
+    } else
+    this.reloadData();
+  }
+
+  private reloadData(): void {
+    this._apiService.getCartProducts(this.userCart).subscribe((apiresponse: APIData)=>{
+      this.source.load(apiresponse.data);
+    });
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
@@ -101,8 +90,11 @@ export class CartComponent implements OnInit {
     }
   }
 
-  // OnRowSelect(event): void{
-  //   // var productData :ProductData = event.data;
-  //   // console.log(productData);
-  // }
+  checkoutClick(event): void{
+    if(this.userCart.username == null){
+      //Show Message You are Not logged
+    } else
+      this._apiService.cartCheckout(this.userCart).subscribe((apiresponse: APIData)=>{
+    });
+  }
 }

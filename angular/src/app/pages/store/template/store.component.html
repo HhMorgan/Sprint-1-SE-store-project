@@ -1,10 +1,11 @@
 <nb-card>
   <nb-card-header>
-    Smart Table
+    Store
   </nb-card-header>
 
   <nb-card-body>
       <toaster-container [toasterconfig]="config"></toaster-container>
       <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (rowSelect) = "OnRowSelect($event)"></ng2-smart-table>
+      <button (click)="cartClick($event)">Add To Cart</button>
   </nb-card-body>
 </nb-card>
