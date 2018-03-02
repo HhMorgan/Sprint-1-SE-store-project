@@ -26,21 +26,21 @@ module.exports.userlogin = function(req, res, next) {
         msg: 'Auth login Failed Wrong Username Or Password.',
         data: null
       });
-    } else  if (JSON.parse(JSON.stringify(user))['type']==='admin') { 
+    } else  if (user.type == 'admin') { 
       res.status(201).json({
         err: null,
         msg: 'Auth login Successful admin',
         data: user
       });
     }
-    else  if  (JSON.parse(JSON.stringify(user))['type']==='user') {
+    else  if  (user.type == 'user') {
       res.status(201).json({
         err: null,
         msg: 'Auth login Successful user',
         data: user
       });
     }
-    else  if (JSON.parse(JSON.stringify(user))['type']==='manager') {
+    else  if (user.type == 'manager') {
       res.status(201).json({
         err: null,
         msg: 'Auth login Successful manager',
