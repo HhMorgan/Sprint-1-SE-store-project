@@ -26,6 +26,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.userService.getUsers()
       .subscribe((users: any) => this.user = users.hesham);
+      let user: string = localStorage.getItem('currentUser');
+    if(JSON.parse(user)=== "null"){
+      document.getElementById("t1").innerHTML = "";
+    }
+    else{
+      document.getElementById("t1").innerHTML =JSON.parse(localStorage.getItem('currentUser'));
+    }
   }
 
   toggleSidebar(): boolean {
