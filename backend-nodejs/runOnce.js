@@ -6,36 +6,30 @@ var url = "mongodb://localhost:27017/Store-Database";
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("Store-Database");
+  var dbo = db.db("Store-Database");  
 
   var ProductsObj = [
-  {id: 1, name: 'test1',price: 200,createdAt: '',updatedAt:'',seller:'nada'},
-  {id: 2, name: 'test2',price: 300,createdAt: '',updatedAt:'',seller:'nada'},
-  {id: 3, name: 'test3',price: 450,createdAt: '',updatedAt:'',seller:'nada'},
-  {id: 4, name: 'test4',price: 100,createdAt: '',updatedAt:'',seller:'nada'},
-  {id: 5, name: 'test5',price: 150,createdAt: '',updatedAt:'',seller:'nada'},
-  {id: 6, name: 'test6',price: 700,createdAt: '',updatedAt:'',seller:'boudi'},
-  {id: 7, name: 'test7',price: 800,createdAt: '',updatedAt:'',seller:'boudi'},
-  {id: 8, name: 'test8',price: 900,createdAt: '',updatedAt:'',seller:'boudi'},
-  {id: 9, name: 'kiwi',price: 20,createdAt: '1-2-2018',updatedAt:'',seller:'Mariam'},
-  {id: 10, name: 'Banana',price: 30,createdAt: '2-1-2018',updatedAt:'',seller:'Mariam'},
-  {id: 11, name: 'Apple',price: 20,createdAt: '3-1-2018',updatedAt:'',seller:'Mariam'},
-  {id: 12, name: 'Peach',price: 20,createdAt: '1-2-2018',updatedAt:'',seller:'Mariam'},
-  {id: 13, name: 'Strawberry',price: 25,createdAt: '2-1-2018',updatedAt:'',seller:'Mariam'},
-  {id: 14, name: 'Apricot',price: 30,createdAt: '1-1-2018',updatedAt:'',seller:'Mariam'},
+
   ];
 
   var usersObj = [
-    { username: '1', password: '1'},
-    { username: '2', password: '2'},
-    { username: 'user', password: 'user'},
-    { username: 'admin', password: 'admin'},
-    { username: 'manager', password: 'manager'}
+    { username: '1', password: '1',type:'user'},
+    { username: '2', password: '2',type:'admin'},
+    { username: 'user', password: 'user',type:'user'},
+    { username: 'admin', password: 'admin',type:'admin'},
+    { username: 'manager', password: 'manager',type:'manager'}
+  ];
+  var cartsObj = [
+    { username: '1', name:'Dragon Quest XI',price:59.99,seller:'admin'},
+    { username: '2', name:'Monster Hunter World',price:59.99,seller:'user'},
+    { username: 'user', name:'Nier Automata',price:59.99,seller:'manager'},
+    { username: 'admin', name:'Final Fantasy XV RE',price:49.99,seller:'2'},
+    { username: 'manager', name:'Persona 5',price:59.99,seller:'1'},
   ];
   var collectionsObj = [
     {name: 'Products', data: null},
     {name: 'Users', data: usersObj},
-    // {name: 'Carts', data: cartsObj},
+    {name: 'Carts', data: cartsObj},
   ];
 
   for (var i = 0; i < collectionsObj.length; i++){

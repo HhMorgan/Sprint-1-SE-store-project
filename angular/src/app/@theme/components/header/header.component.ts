@@ -48,7 +48,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
-    localStorage.setItem('currentUser','null');
+    //localStorage.setItem('currentUser','null');
+    //localStorage.removeItem('currentUser');
+    localStorage.clear()
     console.log(localStorage.getItem('currentuser') );
 
   }
