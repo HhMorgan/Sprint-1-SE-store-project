@@ -2,10 +2,8 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { APIService } from '../../app_services/api.service';
-import { ToasterService, ToasterConfig, Toast, BodyOutputType } from 'angular2-toaster';
-import { APIData  , ProductData  , CartData } from '../../app_services/models/api.data.structure'
+import { APIData  , ProductData } from '../../app_services/models/api.data.structure'
 
-import 'style-loader!angular2-toaster/toaster.css';
 
 @Component({
   selector: 'store',
@@ -15,18 +13,47 @@ import 'style-loader!angular2-toaster/toaster.css';
 
 export class StoreComponent implements OnInit {
 
-  private cart: String;
-  private productData :ProductData;
+  ngOnInit() {
+    let user: string = localStorage.getItem('type');
+    if(JSON.parse(user)=== "user"){
+      console.log('1');
+      this.settings.actions={
+        add: false,
+      edit: false,
+       delete: false,
+       columnTitle: 'Search',
+      };
+     
+    }
+    else if(JSON.parse(user) === "admin"){
+      console.log('3');
+      this.settings.actions={
+        add: true,
+      edit: true,
+       delete: true,
+       columnTitle: 'Search',
+      };
+     
+    }
+    else if(JSON.parse(user) === "manager"){
+      console.log('2');
+      this.settings.actions={
+        add: true,
+      edit: true,
+       delete: false,
+       columnTitle: 'Search',
+      };
+     
+    }
+  }
 
   settings = {
-
+    // mode: 'external',
     editor: {
-      // config: false
-    },
-    cart:{
-      
+      config: false
     },
     add: {
+      inputClass: "ID",
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
@@ -41,10 +68,10 @@ export class StoreComponent implements OnInit {
       confirmDelete: true,
     },
     actions: {
-      // add: false,
-      // edit: false,
-      // delete: false,
-      columnTitle: 'Actions'
+      add: false,
+      edit: false,
+       delete: false,
+      columnTitle: 'Search'
     },
     columns: {
       id: {
@@ -79,70 +106,33 @@ export class StoreComponent implements OnInit {
         editable: false,
         addable: false,
       },
-      
     },
   };
 
-  private cardData = <CartData>{};
-  config: ToasterConfig;
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private _apiService: APIService , private toasterService: ToasterService) {
-    this.source.onChanged().subscribe(()=>{
-      // this.fetchData();
-    });
-
+  constructor(private _apiService: APIService) {
     this.source.onAdded().subscribe((productData :ProductData)=>{
       this._apiService.createProduct(productData).subscribe((apiresponse: APIData)=>{
-        this.showToast( 'default' , 'Message', apiresponse.msg.toString());
-        this.reloadData();
+        console.log(apiresponse);
       });
     });
-
-    this.source.onUpdated().subscribe((productData :ProductData)=>{
-      this._apiService.updateProduct(productData).subscribe((apiresponse: APIData)=>{
-        this.showToast( 'default' , 'Message', apiresponse.msg.toString());
-        this.reloadData();
-      });
-    });
-
     this.source.onRemoved().subscribe((productData :ProductData)=>{
       this._apiService.deleteProduct(productData).subscribe((apiresponse: APIData)=>{
-        this.showToast( 'default' , 'Message', apiresponse.msg.toString());
-        this.reloadData();
+        console.log(apiresponse);
       });
     });
-  }
-
-  types: string[] = ['default', 'info', 'success', 'warning', 'error'];
-  animations: string[] = ['fade', 'flyLeft', 'flyRight', 'slideDown', 'slideUp'];
-  positions: string[] = ['toast-top-full-width', 'toast-bottom-full-width', 'toast-top-left', 'toast-top-center',
-    'toast-top-right', 'toast-bottom-right', 'toast-bottom-center', 'toast-bottom-left', 'toast-center'];
-
-  private showToast(type: string, title: string, body: string) {
-    this.showToastConfig( type , title , body , 'toast-top-right' , 'fade' , 5000 , 5 , true , true , false , true );
-  }
-
-  private showToastConfig(type: string , title: string , body: string , position: string , animationType: string , timeout: number , toastsLimit: number , 
-    isNewestOnTop: boolean , isHideOnClick: boolean , isDuplicatesPrevented: boolean , isCloseButton: boolean ){
-      this.config = new ToasterConfig({positionClass: position , timeout: timeout , newestOnTop: isNewestOnTop ,
-        tapToDismiss: isHideOnClick , preventDuplicates: isDuplicatesPrevented , animation: animationType , limit: toastsLimit,
+    this.source.onUpdated().subscribe((productData :ProductData)=>{
+      this._apiService.editProduct(productData).subscribe((apiresponse: APIData)=>{
+        console.log(apiresponse);
       });
-      var toast: Toast = { type: type , title: title , body: body , timeout: timeout , showCloseButton: isCloseButton , 
-        bodyOutputType: BodyOutputType.TrustedHtml };
-      this.toasterService.popAsync(toast);
-  }
-
-  ngOnInit() {
-    this.reloadData();
-    this.cardData.username = localStorage.getItem("currentUser");
-  }
-
-  private reloadData(): void {
+    });
     this._apiService.getProducts().subscribe((apiresponse: APIData)=>{
       for (var i = 0 ; i < apiresponse.data.length ; i++ )
         apiresponse.data[i].id = (i+1);
-      this.source.load(apiresponse.data);
+      
+      console.log(apiresponse.data[0]);
+      this.source.load( apiresponse.data);
     });
   }
 
@@ -154,25 +144,6 @@ export class StoreComponent implements OnInit {
     }
   }
 
-  OnRowSelect(event): void {
-     this.productData = event.data;
-     if(this.cart == this.productData._id){
-       this.cart="-1";
-     } else if(this.cart != this.productData._id || this.cart=="-1") {
-       this.cart=this.productData._id;
-     }
-  }
-
-  cartClick(event):void {
-    if(this.cart != "-1") {
-      this.cardData.productId = this.productData._id;
-      if(this.cardData.username == null){
-        this.showToast ('info' , 'Message' , "You must login To add a Product to your Cart");
-      } else 
-        this._apiService.addProductToCart(this.cardData).subscribe((apiresponse: APIData)=>{
-          this.showToast ('default' , 'Message' , apiresponse.msg.toString());
-        });
-    } else 
-        this.showToast( 'default' , 'Message', "Nothing is selected");
+  OnRowSelect(event): void{
   }
 }
