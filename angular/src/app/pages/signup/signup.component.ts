@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   private username;
   private password;
   private confirm_password;
+  private type;
   private registerMessageStatus;
   constructor(private _apiService: APIService ,private route: ActivatedRoute, private router: Router){}
 

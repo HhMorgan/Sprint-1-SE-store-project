@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['dashboard'], { relativeTo: this.route });
   }
 
-  loginClick() {
+  loginClick(){
     if(this.username != null && this.password != null){
       this._apiService.login({ username: this.username, password: this.password, type : this.type }).subscribe((apiresponse: APIData)=>{
         this.loginMessage = apiresponse.msg;
