@@ -11,7 +11,7 @@ import { AnalyticsService } from '../../../@core/utils/analytics.service';
 })
 export class HeaderComponent implements OnInit {
 
-
+sign = 'SignUp'
   @Input() position = 'normal';
 
   user: any;
@@ -52,5 +52,16 @@ export class HeaderComponent implements OnInit {
     console.log(localStorage.getItem('currentuser') );
 
   }
-
+  signup(){
+    if(this.sign == 'SignUp'){
+      window.location.href="/#/pages/signup";
+      this.sign = 'login'
   }
+  else if(this.sign == 'login'){
+    window.location.href="/#/pages/login";
+    this.sign = 'SignUp'
+}
+ 
+
+
+  }}
