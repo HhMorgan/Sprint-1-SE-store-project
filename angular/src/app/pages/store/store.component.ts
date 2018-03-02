@@ -136,7 +136,7 @@ export class StoreComponent implements OnInit {
     this.reloadData();
     this.logindata.username = localStorage.getItem("currentUser");
     let user: string = localStorage.getItem('type');
-    if(JSON.parse(user)=== "user"){
+    if(user === "user"){
       console.log('1');
       this.settings.actions={
         add: false,
@@ -145,7 +145,7 @@ export class StoreComponent implements OnInit {
        columnTitle: 'Actions',
       };
     }
-    else if(JSON.parse(user) === "admin"){
+    else if(user == "admin"){
       console.log('3');
       this.settings.actions={
         add: true,
@@ -155,7 +155,7 @@ export class StoreComponent implements OnInit {
       };
      
     }
-    else if(JSON.parse(user) === "manager"){
+    else if( user ==  "manager"){
       console.log('2');
       this.settings.actions={
         add: true,

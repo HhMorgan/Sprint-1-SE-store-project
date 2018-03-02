@@ -29,15 +29,15 @@ export class LoginComponent implements OnInit {
       this._apiService.login({ username: this.username, password: this.password, type : this.type }).subscribe((apiresponse: APIData)=>{
         this.loginMessage = apiresponse.msg;
         if( apiresponse.msg.includes('Successful') ){ 
-          localStorage.setItem('currentUser',JSON.stringify(this.username));
+          localStorage.setItem('currentUser',this.username);
           if( apiresponse.msg.includes('user') ){
-            localStorage.setItem('type',JSON.stringify('user'));
+            localStorage.setItem('type','user');
           }
           else if( apiresponse.msg.includes('admin') ){
-            localStorage.setItem('type',JSON.stringify('admin'));
+            localStorage.setItem('type','admin');
           }
           else if( apiresponse.msg.includes('manager') ){
-            localStorage.setItem('type',JSON.stringify('manager'));
+            localStorage.setItem('type','manager');
           }
          console.log(apiresponse.msg);
           this.showDashboard();
