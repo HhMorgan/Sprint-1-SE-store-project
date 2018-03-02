@@ -11,9 +11,15 @@ export interface LoginData {
 
 export interface ProductData {
     _id:String;
+    id:number;
     name: String;
     price: Number; 
     createdAt: String; 
     updatedAt: String;
     seller:  String;
+}
+
+export interface CartData {
+    productId:String;
+    username:string;
 }
