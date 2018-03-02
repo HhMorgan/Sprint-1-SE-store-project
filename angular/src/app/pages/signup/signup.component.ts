@@ -29,11 +29,11 @@ export class SignupComponent implements OnInit {
     if(this.username != null){
       if(this.password != null || this.confirm_password != null ){
         if(this.password ==  this.confirm_password){
-          this._apiService.createUser({ username: this.username, password: this.password }).subscribe((apiresponse: APIData)=>{
+          this._apiService.createUser({ username: this.username, password: this.password, type: 'user'}).subscribe((apiresponse: APIData)=>{
             if(apiresponse.msg.includes('Successfully'))
               this.showDashboard();
             this.registerMessageStatus = apiresponse.msg;
-          });
+         });
         } else 
           this.registerMessageStatus = "Password Mismatch";
       } else 
